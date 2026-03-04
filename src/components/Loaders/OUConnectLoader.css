@@ -1,0 +1,138 @@
+/* src/components/OUConnectLoader.css */
+
+/* wrapper when used as overlay */
+.ou-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  background: rgba(0,0,0,0.45); /* soft backdrop */
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* wrapper for inline usage */
+.ou-inline-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* base loader row */
+.loader {
+  display: flex;
+  margin: 0.25em 0;
+  align-items: center;
+  justify-content: center;
+}
+
+/* small spacer */
+.w-2 {
+  width: 0.5em;
+}
+
+/* svg helpers */
+.absolute {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: visible;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+/* dash path animation */
+.dash {
+  animation: dashArray 2s ease-in-out infinite,
+             dashOffset 2s linear infinite;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+/* spinning ring (has additional spin) */
+.spin {
+  animation: spinDashArray 2s ease-in-out infinite,
+             spin 8s ease-in-out infinite,
+             dashOffset 2s linear infinite;
+  transform-origin: center;
+}
+
+/* label */
+.ou-label {
+  color: white;
+  font-weight: 700;
+  margin-top: 0.6rem;
+  text-align: center;
+  letter-spacing: 0.6px;
+  font-size: 0.95rem;
+}
+
+/* keyframes */
+@keyframes dashArray {
+  0% {
+    stroke-dasharray: 0 1 359 0;
+  }
+  50% {
+    stroke-dasharray: 0 359 1 0;
+  }
+  100% {
+    stroke-dasharray: 359 1 0 0;
+  }
+}
+
+@keyframes spinDashArray {
+  0% {
+    stroke-dasharray: 270 90;
+  }
+  50% {
+    stroke-dasharray: 0 360;
+  }
+  100% {
+    stroke-dasharray: 270 90;
+  }
+}
+
+@keyframes dashOffset {
+  0% {
+    stroke-dashoffset: 365;
+  }
+  100% {
+    stroke-dashoffset: 5;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  12.5%,
+  25% {
+    transform: rotate(270deg);
+  }
+  37.5%,
+  50% {
+    transform: rotate(540deg);
+  }
+  62.5%,
+  75% {
+    transform: rotate(810deg);
+  }
+  87.5%,
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+
+/* small responsive sizing */
+.ou-inline-wrapper .inline-block {
+  vertical-align: middle;
+}
+
+/* make overlay label larger */
+.ou-overlay .ou-label {
+  font-size: 1.1rem;
+}
