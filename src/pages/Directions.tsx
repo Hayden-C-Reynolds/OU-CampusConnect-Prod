@@ -18,7 +18,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { useLocation, useHistory } from "react-router-dom";
 
 mapboxgl.accessToken =
-  (process.env.REACT_APP_MAPBOX_TOKEN as string) ||
+  (process.env.VITE_MAPBOX_TOKEN as string) ||
   "pk.eyJ1IjoiaHJkYW5pZW5pZWxzIiwiYSI6ImNsdGppdmNwaTBxbzUyanBuY3Q5anFvNjcifQ.PPTUzbG7vHYy_4vYY9w2OA";
 
 type LatLng = { lat: number; lng: number; name?: string };

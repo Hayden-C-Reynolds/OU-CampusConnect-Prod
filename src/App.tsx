@@ -15,7 +15,7 @@ import Login from './pages/Login';
 import TabBar from './components/navigation/TabBar';
 import Favorites from './pages/Favorites';
 // import Profile from './pages/Profile';
-import Info from './pages/Info';
+// import Info from './pages/Info';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -34,6 +34,7 @@ import "./theme/main.css";
 
 import useFirebase from './firebase/useFirebase';
 import { IonStorageContext, IonStorageProvider } from './contexts/StorageContext';
+import InfoPage from './pages/InfoPage';
 
 setupIonicReact();
 
@@ -95,14 +96,13 @@ const AppInner: React.FC = () => {
         <Route exact path="/favorites">
           {userData === null ? <Redirect to="/login" /> : <Favorites />}
         </Route>
-
+        <Route exact path="/info"> 
+          {userData === null ? <Redirect to="/login" /> : <InfoPage />}
+        </Route>
         {/* <Route exact path="/profile">
           {userData === null ? <Redirect to="/login" /> : <Profile />}
         </Route> */}
 
-        <Route exact path="/info">
-          {userData === null ? <Redirect to="/login" /> : <Info />}
-        </Route>
 
         <Route exact path="/onboarding">
           <Onboarding />

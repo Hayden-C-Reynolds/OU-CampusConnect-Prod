@@ -1,112 +1,117 @@
-import React, { useState, useEffect } from "react";
+// src/components/navigation/TabBar.tsx
+import React, { useState, useEffect, useContext } from "react";
 import { IonIcon } from "@ionic/react";
 import {
-  homeOutline,
+  homeSharp,
   heartOutline,
   personOutline,
-  informationOutline,
-  personSharp,
-  personCircleSharp,
-  homeSharp,
-  informationSharp,
   informationCircleSharp,
 } from "ionicons/icons";
 import { NavLink, useLocation } from "react-router-dom";
 import { IonStorageContext } from "../../contexts/StorageContext";
 
+const items = [
+  { to: "/home",      label: "Home",      icon: homeSharp,              isGuest: null  },
+  { to: "/favorites", label: "Favorites", icon: heartOutline,           isGuest: false },
+  { to: "/profile",   label: "Profile",   icon: personOutline,          isGuest: false },
+  { to: "/info",      label: "Info",      icon: informationCircleSharp, isGuest: true  },
+];
+
 const TabBar: React.FC = () => {
   const location = useLocation();
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden]       = useState(false);
   const [prevScroll, setPrevScroll] = useState(0);
-  const { isGuest } = React?.useContext(IonStorageContext);
+  const { isGuest } = useContext(IonStorageContext);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScroll = window.scrollY;
-
-      if (currentScroll > prevScroll && currentScroll > 50) {
-        setHidden(true); // scrolling down
-      } else {
-        setHidden(false); // scrolling up
-      }
-
-      setPrevScroll(currentScroll);
+      const current = window.scrollY;
+      setHidden(current > prevScroll && current > 50);
+      setPrevScroll(current);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScroll]);
 
-  const items = [
-    { to: "/home", label: "Home", icon: homeSharp, isGuest: null },
-    {
-      to: "/favorites",
-      label: "Favorites",
-      icon: heartOutline,
-      isGuest: false,
-    },
-    { to: "/profile", label: "Profile", icon: personOutline, isGuest: false },
-    { to: "/info", label: "Info", icon: informationCircleSharp, isGuest: true },
-  ];
+  // Show items based on auth state
+  const visible = items.filter((x) => {
+    if (isGuest === false) return true;
+    if (isGuest === true)  return x.isGuest === true || x.isGuest === null;
+    return false;
+  });
 
   return (
-    <nav
-      className={`fixed left-0 right-0 bottom-4 z-50 flex justify-center pointer-events-none transition-all duration-300 ${
-        hidden ? "-translate-y-24 opacity-0" : "translate-y-0 opacity-100"
-      }`}
-    >
-      {/* w-[90%] */}
-      <div className="w-[65%] max-w-3xl bg-gray-900/95 backdrop-blur-sm rounded-3xl shadow-xl border border-gray-700 p-2 flex justify-between items-center gap-2 pointer-events-auto">
-        {items
-          .filter((x: any, idx: number) => {
-            if (isGuest === false && idx < 3) {
-              return x;
-            }
+    <>
+      <style>{`
+        @keyframes tabPop {
+          0%   { transform: scale(1); }
+          40%  { transform: scale(0.88); }
+          70%  { transform: scale(1.08); }
+          100% { transform: scale(1); }
+        }
+        .tab-pop { animation: tabPop 0.28s cubic-bezier(0.34,1.56,0.64,1); }
 
-            if (
-              isGuest === true &&
-              (x["isGuest"] === true || x["isGuest"] === null)
-            ) {
-              return x;
-            }
-          })
-          .map((it, idx) => {
+        @keyframes tabGlow {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(251,191,36,0); }
+          50%       { box-shadow: 0 0 14px 3px rgba(251,191,36,0.35); }
+        }
+        .tab-active-glow { animation: tabGlow 2.5s ease-in-out infinite; }
+      `}</style>
+
+      <nav
+        className={`fixed left-0 right-0 bottom-0 z-50 flex justify-center
+                    pointer-events-none transition-all duration-300 ease-in-out
+                    ${hidden ? "translate-y-28 opacity-0" : "translate-y-0 opacity-100"}`}
+        style={{ paddingBottom: "max(env(safe-area-inset-bottom), 16px)" }}
+      >
+        <div
+          className="pointer-events-auto flex items-center gap-1 px-2 py-2
+                     bg-gray-950/90 backdrop-blur-xl rounded-[28px]
+                     border border-white/10"
+          style={{
+            boxShadow:
+              "0 -2px 40px rgba(0,0,0,0.5), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)",
+          }}
+        >
+          {visible.map((it) => {
             const selected = location.pathname === it.to;
 
             return (
               <NavLink
                 key={it.to}
-                to={it.to} // removed from the class: py-2 px-2 gap-1 flex-col
-                className={`flex-1 flex flex-row p-2 items-center justify-center rounded-2xl transition-all duration-150 ${
-                  selected
-                    ? "!bg-amber-400/90 shadow-[0_0_10px_rgba(255,250,221,0.4)]"
-                    : "hover:bg-gray-700 hover:shadow-[0_0_8px_rgba(255,255,255,0.4)]"
-                }`}
+                to={it.to}
+                className={`relative flex items-center justify-center gap-2 rounded-[20px]
+                            transition-all duration-200 select-none
+                            ${selected
+                              ? "bg-amber-400 px-5 py-2.5 tab-active-glow"
+                              : "px-4 py-2.5 hover:bg-white/5 active:bg-white/10"
+                            }`}
               >
-                <div
-                  className={`rounded-full py-1 flex items-center justify-center transition-transform duration-150 ${
-                    selected ? "text-white" : "text-white/50"
+                {/* Glow bloom behind active tab */}
+                {selected && (
+                  <span className="absolute inset-0 rounded-[20px] bg-amber-400/20 blur-md" />
+                )}
+
+                <IonIcon
+                  icon={it.icon}
+                  className={`relative transition-all duration-200 ${
+                    selected ? "text-white" : "text-white"
                   }`}
-                >
-                  {/*  */}
-                  <IonIcon
-                    icon={it.icon}
-                    className="mr-1"
-                    style={{ fontSize: "20px" }}
-                  />
-                </div>
-                <span
-                  className={`text-[15px] font-bold ${
-                    selected ? "text-white" : "text-white/50"
-                  }`}
-                >
-                  {it.label}
-                </span>
+                  style={{ fontSize: selected ? "20px" : "18px" }}
+                />
+
+                {/* Label only shows on active tab */}
+                {selected && (
+                  <span className="relative text-[13px] font-black text-white tracking-tight whitespace-nowrap">
+                    {it.label}
+                  </span>
+                )}
               </NavLink>
             );
           })}
-      </div>
-    </nav>
+        </div>
+      </nav>
+    </>
   );
 };
 
