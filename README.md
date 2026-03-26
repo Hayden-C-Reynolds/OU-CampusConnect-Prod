@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 ````markdown
 # 🏫 Oakwood Campus Map App
 
