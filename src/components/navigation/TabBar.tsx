@@ -6,6 +6,7 @@ import {
   heartOutline,
   personOutline,
   informationCircleSharp,
+  calendarOutline
 } from "ionicons/icons";
 import { NavLink, useLocation } from "react-router-dom";
 import { IonStorageContext } from "../../contexts/StorageContext";
@@ -13,6 +14,7 @@ import { IonStorageContext } from "../../contexts/StorageContext";
 const items = [
   { to: "/home",      label: "Home",      icon: homeSharp,              isGuest: null  },
   { to: "/favorites", label: "Favorites", icon: heartOutline,           isGuest: false },
+  { to: "/events",    label: "Events",    icon: calendarOutline,        isGuest: null  },
   { to: "/profile",   label: "Profile",   icon: personOutline,          isGuest: false },
   { to: "/info",      label: "Info",      icon: informationCircleSharp, isGuest: true  },
 ];

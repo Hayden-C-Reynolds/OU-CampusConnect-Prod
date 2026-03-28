@@ -14,6 +14,9 @@ import Onboarding from './pages/Onboarding';
 import Login from './pages/Login';
 import TabBar from './components/navigation/TabBar';
 import Favorites from './pages/Favorites';
+import InfoPage from './pages/InfoPage';
+import EventsPage from './pages/Events';
+
 // import Profile from './pages/Profile';
 // import Info from './pages/Info';
 
@@ -34,7 +37,7 @@ import "./theme/main.css";
 
 import useFirebase from './firebase/useFirebase';
 import { IonStorageContext, IonStorageProvider } from './contexts/StorageContext';
-import InfoPage from './pages/InfoPage';
+
 
 setupIonicReact();
 
@@ -99,6 +102,10 @@ const AppInner: React.FC = () => {
         <Route exact path="/info"> 
           {userData === null ? <Redirect to="/login" /> : <InfoPage />}
         </Route>
+        <Route exact path="/events">
+          {userData === null ? <Redirect to="/login" /> : <EventsPage />}
+        </Route>
+
         {/* <Route exact path="/profile">
           {userData === null ? <Redirect to="/login" /> : <Profile />}
         </Route> */}
