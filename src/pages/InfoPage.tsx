@@ -15,12 +15,12 @@ const contributors = [
   },
     {
     name: "Onell Dishmey",
-    role: "Lead Developer & Designer",
+    role: "Developer & Designer",
     emoji: "👨🏾‍💻",
     note: "Built the map engine, UI architecture, and navigation system.",
   },
   {
-    name: "Hayden",
+    name: "Hayden Reynolds",
     role: "Developer & Designer",
     emoji: "🎨",
     note: "Developed & designed the visual language and campus marker system.",
