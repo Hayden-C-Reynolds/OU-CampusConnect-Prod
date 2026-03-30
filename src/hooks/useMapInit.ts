@@ -59,6 +59,17 @@ export const useMapInit = ({
     mapRef.current = map;
     map.addControl(new mapboxgl.NavigationControl({ showCompass: true }), "top-right");
 
+
+    // ── User location dot + "Find Me" button ──
+    const geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: { enableHighAccuracy: true },
+      trackUserLocation: true,
+      showUserHeading: true,
+      showAccuracyCircle: false,
+    });
+    
+map.addControl(geolocate, "top-right");
+
     map.on("load", () => {
       onMapLoaded();
 
