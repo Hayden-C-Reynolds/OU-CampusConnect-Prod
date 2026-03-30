@@ -5,12 +5,13 @@ export const campusLocations: CampusLocation[] = [
   {
     id: "eva_library",
     name: "Eva B. Dykes Library",
-    lat: 34.756306,
-    lng: -86.651611,
+    lat: 34.756756,
+    lng: -86.651405,
     category: "Library",
     description: "Main campus library with extensive collections and study spaces.",
     hours: { open: "8:00 AM", close: "10:00 PM" },
-    extra: "Includes group study rooms, archives, and computer access."
+    extra: "Includes group study rooms, archives, and computer access.",
+    acronyms: ["EBDL", "LIBR"]
   },
   {
     id: "blake_center",
@@ -20,17 +21,19 @@ export const campusLocations: CampusLocation[] = [
     category: "Admin / Dining",
     description: "Administration & Blake Dining Hall for on-campus residents.",
     hours: { open: "7:00 AM", close: "9:00 PM" },
-    extra: "Houses administrative offices and the dining hall."
+    extra: "Houses administrative offices and the dining hall.",
+    acronyms: ["BC"]
   },
   {
     id: "oakwood_church",
     name: "Oakwood University Church",
-    lat: 34.753222,
-    lng: -86.651222,
+    lat: 34.753082,
+    lng: -86.650781,
     category: "Church",
     description: "Oakwood University Church on Adventist Blvd.",
     hours: { open: "9:00 AM", close: "9:00 PM" },
-    extra: "Hosts weekly services, choir events, and campus worship."
+    extra: "Hosts weekly services, choir events, and campus worship.",
+    acronyms: ["OUC", "CHURCH"]
   },
   {
     id: "holland_hall",
@@ -40,7 +43,8 @@ export const campusLocations: CampusLocation[] = [
     category: "Dormitory",
     description: "Residence hall for students.",
     hours: { open: "24/7", close: "—" },
-    extra: "Includes lounge areas and student housing."
+    extra: "Includes lounge areas and student housing.",
+    acronyms: ["HH"]
   },
   {
     id: "edwards_hall",
@@ -50,57 +54,63 @@ export const campusLocations: CampusLocation[] = [
     category: "Dormitory",
     description: "Residence hall with study spaces.",
     hours: { open: "24/7", close: "—" },
-    extra: "Known for its proximity to central campus."
+    extra: "Known for its proximity to central campus.",
+    acronyms: ["EH"]
   },
   {
     id: "cunningham_hall",
     name: "Cunningham Hall",
     lat: 34.756611,
     lng: -86.654611,
-    category: "Dormitory",
+    category: "Admin",
     description: "Student residence hall.",
     hours: { open: "24/7", close: "—" },
-    extra: "Located near Cooper Complex."
+    extra: "Located near Cooper Complex.",
+    acronyms: ["CH", "CUN"]
   },
   {
     id: "moran_hall",
     name: "Moran Hall",
     lat: 34.755806,
     lng: -86.655389,
-    category: "Dormitory",
+    category: "Academic",
     description: "Student housing and community events.",
     hours: { open: "24/7", close: "—" },
-    extra: "Popular among upperclassmen."
+    extra: "Popular among upperclassmen.",
+    acronyms: ["MH"]
   },
   {
     id: "cooper_cc1",
     name: "Cooper Complex CC1",
     lat: 34.754889,
     lng: -86.653139,
-    category: "Science / Academic",
+    category: "Academic",
     description: "Part of the E. A. Cooper Science Complex.",
     hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Labs and classrooms for science programs."
+    extra: "Labs and classrooms for science programs.",
+    acronyms: ["CC", "CC1"]
   },
   {
     id: "cooper_cc2",
     name: "Cooper Complex CC2",
     lat: 34.754611,
     lng: -86.653111,
-    category: "Science / Academic",
+    category: "Academic",
     description: "Second building of the Cooper Science Complex.",
     hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Includes specialized labs."
+    extra: "Includes specialized labs.",
+    acronyms: ["CC", "CC2"]
   },
   {
     id: "cooper_cc3",
     name: "Cooper Complex CC3",
     lat: 34.754278,
     lng: -86.653083,
-    category: "Science / Academic",
+    category: "Academic",
     description: "Third building of the Cooper Science Complex.",
     hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Classrooms and faculty offices."
+    extra: "Classrooms and faculty offices.",
+    acronyms: ["CC", "CC3"]
   },
   {
     id: "oakwood_academy",
@@ -110,7 +120,8 @@ export const campusLocations: CampusLocation[] = [
     category: "School",
     description: "Private K–12 academy affiliated with Oakwood University.",
     hours: { open: "7:30 AM", close: "4:00 PM" },
-    extra: "Hosts sports teams and community events."
+    extra: "Hosts sports teams and community events.",
+    acronyms: ["OAA"]
   },
   {
     id: "knight_hall",
@@ -120,7 +131,8 @@ export const campusLocations: CampusLocation[] = [
     category: "Dormitory",
     description: "Residence hall for students.",
     hours: { open: "24/7", close: "—" },
-    extra: "Recently renovated with modern amenities."
+    extra: "Recently renovated with modern amenities.",
+    acronyms: ["KH"]
   },
   {
     id: "peterson_hall",
@@ -130,17 +142,19 @@ export const campusLocations: CampusLocation[] = [
     category: "Academic",
     description: "Academic building with classrooms and lecture halls.",
     hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Hosts multiple academic departments."
+    extra: "Hosts multiple academic departments.",
+    acronyms: ["PH"]
   },
   {
     id: "ford_hall",
     name: "Ford Hall",
-    lat: 34.757020,
-    lng: -86.655490,
+    lat: 34.756816,
+    lng: -86.655523,
     category: "Academic",
     description: "Ford Hall classrooms and offices.",
     hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Home to general education courses."
+    extra: "Home to general education courses.",
+    acronyms: ["FH"]
   },
   {
     id: "ola_church",
@@ -155,12 +169,13 @@ export const campusLocations: CampusLocation[] = [
   {
     id: "mckee_bt",
     name: "McKee Business & Technology Complex",
-    lat: 34.753000,
-    lng: -86.655300,
+    lat: 34.752039,
+    lng: -86.654459,
     category: "Academic",
     description: "Business & Technology Complex (McKee).",
     hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Computer labs and business classrooms."
+    extra: "Computer labs and business classrooms.",
+    acronyms: ["MBTC", "BT"]
   },
   {
     id: "breath_of_life",
@@ -180,7 +195,8 @@ export const campusLocations: CampusLocation[] = [
     category: "Dormitory",
     description: "Student residence hall.",
     hours: { open: "24/7", close: "—" },
-    extra: "Known for community events."
+    extra: "Known for community events.",
+    acronyms: ["CH"]
   },
   {
     id: "burrell_hall",
@@ -190,7 +206,8 @@ export const campusLocations: CampusLocation[] = [
     category: "Dormitory",
     description: "Residence hall.",
     hours: { open: "24/7", close: "—" },
-    extra: "Provides traditional dorm housing."
+    extra: "Provides traditional dorm housing.",
+    acronyms: ["BH"]
   },
   {
     id: "peters_hall",
@@ -200,7 +217,8 @@ export const campusLocations: CampusLocation[] = [
     category: "Dormitory",
     description: "Residence hall.",
     hours: { open: "24/7", close: "—" },
-    extra: "Includes lounges and community areas."
+    extra: "Includes lounges and community areas.",
+    acronyms: ["PHFA"]
   },
   {
     id: "food_distribution",
@@ -210,7 +228,7 @@ export const campusLocations: CampusLocation[] = [
     category: "Facility",
     description: "Campus food distribution warehouse.",
     hours: { open: "9:00 AM", close: "6:00 PM" },
-    extra: "Supports Oakwood’s community programs."
+    extra: "Supports Oakwood's community programs."
   },
   {
     id: "bookstore",
@@ -220,7 +238,8 @@ export const campusLocations: CampusLocation[] = [
     category: "Store",
     description: "Campus bookstore for supplies and Oakwood gear.",
     hours: { open: "9:00 AM", close: "6:00 PM" },
-    extra: "Sells apparel, books, and electronics."
+    extra: "Sells apparel, books, and electronics.",
+    acronyms: ["OMB"]
   },
   {
     id: "market",
@@ -230,7 +249,8 @@ export const campusLocations: CampusLocation[] = [
     category: "Store",
     description: "Local convenience market near campus.",
     hours: { open: "8:00 AM", close: "10:00 PM" },
-    extra: "Snacks, drinks, and essentials."
+    extra: "Snacks, drinks, and essentials.",
+    acronyms: ["OMB"]
   },
   {
     id: "west_oaks",
@@ -240,17 +260,19 @@ export const campusLocations: CampusLocation[] = [
     category: "Housing",
     description: "Off-campus apartment-style housing for students.",
     hours: { open: "24/7", close: "—" },
-    extra: "Apartment-style living near campus."
+    extra: "Apartment-style living near campus.",
+    acronyms: ["WOA"]
   },
   {
     id: "soccer_field",
     name: "Soccer Field",
-    lat: 34.755250,
-    lng: -86.655556,
+    lat: 34.753284,
+    lng: -86.654297,
     category: "Sports",
     description: "Outdoor soccer field.",
     hours: { open: "6:00 AM", close: "11:00 PM" },
-    extra: "Used for student games and intramural sports."
+    extra: "Used for student games and intramural sports.",
+    acronyms: ["FIELD"]
   },
   {
     id: "track_field",
@@ -260,7 +282,8 @@ export const campusLocations: CampusLocation[] = [
     category: "Sports",
     description: "Campus track and running field.",
     hours: { open: "6:00 AM", close: "10:00 PM" },
-    extra: "Athletic training and student exercise."
+    extra: "Athletic training and student exercise.",
+    acronyms: ["FIELD"]
   },
   {
     id: "baseball_field",
@@ -270,37 +293,41 @@ export const campusLocations: CampusLocation[] = [
     category: "Sports",
     description: "Baseball field for campus athletics.",
     hours: { open: "6:00 AM", close: "10:00 PM" },
-    extra: "Used for practice and official games."
+    extra: "Used for practice and official games.",
+    acronyms: ["BASE"]
   },
-    {
+  {
     id: "bradford_cleveland",
     name: "Bradford Cleveland Building",
-    lat: 34.753139, // 34°45'11.3"N → 34.753139
-    lng: -86.652278, // 86°39'08.2"W → -86.652278
+    lat: 34.753139,
+    lng: -86.652278,
     category: "Academic",
     description: "Academic and administrative facility on campus.",
     hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Houses classrooms and faculty offices."
+    extra: "Houses classrooms and faculty offices.",
+    acronyms: ["BCBLC"]
   },
   {
     id: "mosley_complex",
     name: "Mosley Complex",
-    lat: 34.753167, // 34°45'11.4"N → 34.753167
-    lng: -86.651861, // 86°39'06.7"W → -86.651861
+    lat: 34.753167,
+    lng: -86.651861,
     category: "Academic",
     description: "Mosley Complex for academic programs and student services.",
     hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Includes lecture halls and student resource offices."
+    extra: "Includes lecture halls and student resource offices.",
+    acronyms: ["MOS", "MC"]
   },
-    {
+  {
     id: "oakwood_police",
-    name: "Oakwood Police",
+    name: "Oakwood University Police Department",
     lat: 34.757083,
     lng: -86.655472,
-    category: "Facility",
+    category: "Security",
     description: "Campus police station for safety and security.",
     hours: { open: "24/7", close: "—" },
-    extra: "Handles all campus safety and emergency situations."
+    extra: "Handles all campus safety and emergency situations.",
+    acronyms: ["OUPD"]
   },
   {
     id: "life_minister_service",
@@ -311,5 +338,185 @@ export const campusLocations: CampusLocation[] = [
     description: "Life and Minister Service office on campus.",
     hours: { open: "8:00 AM", close: "6:00 PM" },
     extra: "Provides ministry support and counseling services."
+  },
+  {
+    id: "bell_tower",
+    name: "Bell Tower",
+    lat: 34.756050,
+    lng: -86.655248,
+    category: "Landmark",
+    description: "Oakwood University Bell Tower.",
+    hours: { open: "24/7", close: "—" },
+    extra: "An iconic landmark at the heart of campus.",
+    acronyms: ["BT"]
+  },
+  {
+    id: "jesus_statue",
+    name: "Jesus Statue (The Quad)",
+    lat: 34.754705,
+    lng: -86.651706,
+    category: "Landmark",
+    description: "The Quad area near the Jesus Statue.",
+    hours: { open: "24/7", close: "—" },
+    extra: "Central gathering space between Wade & Cooper Complex."
+  },
+  {
+    id: "mac",
+    name: "Millet Activity Center (MAC)",
+    lat: 34.757345,
+    lng: -86.657892,
+    category: "Sports",
+    description: "N/A",
+    hours: { open: "24/7", close: "—" },
+    extra: "N/A",
+    acronyms: ["MAC"]
+  },
+  {
+    id: "natatorium",
+    name: "Natatorium",
+    lat: 34.757383,
+    lng: -86.657217,
+    category: "Sports",
+    description: "N/A",
+    hours: { open: "24/7", close: "—" },
+    extra: "N/A",
+    acronyms: ["NAT"]
+  },
+  {
+    id: "ashby_gymnasium",
+    name: "Ashby Gymnasium",
+    lat: 34.757421,
+    lng: -86.656783,
+    category: "Sports",
+    description: "N/A",
+    hours: { open: "24/7", close: "—" },
+    extra: "N/A",
+    acronyms: ["AA", "GYM"]
+  },
+  {
+    id: "wade_hall",
+    name: "Wade Hall",
+    lat: 34.754848,
+    lng: -86.650735,
+    category: "Dormitory",
+    description: "N/A",
+    hours: { open: "24/7", close: "—" },
+    extra: "N/A",
+    acronyms: ["WH"]
+  },
+  {
+    id: "jt_stafford",
+    name: "J.T. Stafford",
+    lat: 34.755098,
+    lng: -86.658790,
+    category: "Academic",
+    description: "N/A",
+    hours: { open: "24/7", close: "—" },
+    extra: "N/A",
+    acronyms: ["JTS"]
+  },
+  {
+    id: "unity_pond",
+    name: "Unity Pond",
+    lat: 34.753727,
+    lng: -86.649640,
+    category: "Landmark",
+    description: "N/A",
+    hours: { open: "24/7", close: "—" },
+    extra: "N/A",
+    acronyms: ["RP", "MALL"]
+  },
+  {
+    id: "family_life_center",
+    name: "Family Life Center",
+    lat: 34.752621,
+    lng: -86.649850,
+    category: "Sports",
+    description: "N/A",
+    hours: { open: "24/7", close: "—" },
+    extra: "N/A",
+    acronyms: ["FAM"]
+  },
+  {
+    id: "campus_post_office",
+    name: "Campus University Post Office",
+    lat: 34.755133,
+    lng: -86.654152,
+    category: "Facility",
+    description: "N/A",
+    hours: { open: "24/7", close: "—" },
+    extra: "N/A"
+  },
+  {
+    id: "green_hall",
+    name: "Green Hall",
+    lat: 34.755359,
+    lng: -86.654926,
+    category: "Academic",
+    description: "N/A",
+    hours: { open: "8:00 AM", close: "8:00 PM" },
+    extra: "N/A",
+    acronyms: ["GH"]
+  },
+
+  // ── Landmarks ──
+  {
+    id: "oakwood_silos",
+    name: "Oakwood Silos",
+    lat: 34.753216,
+    lng: -86.655079,
+    category: "Landmark",
+    description: "N/A",
+    hours: { open: "24/7", close: "—" },
+    extra: "N/A",
+    acronyms: ["SILO"]
+  },
+  {
+    id: "oakwood_amphitheater",
+    name: "Oakwood Amphitheater",
+    lat: 34.756604,
+    lng: -86.648605,
+    category: "Landmark",
+    description: "N/A",
+    hours: { open: "24/7", close: "—" },
+    extra: "N/A",
+    acronyms: ["AMP"]
+  },
+
+  // ── Security ──
+  {
+    id: "main_entrance_security",
+    name: "Main Entrance Security Station",
+    lat: 34.752904,
+    lng: -86.648543,
+    category: "Security",
+    description: "N/A",
+    hours: { open: "24/7", close: "—" },
+    extra: "N/A",
+    acronyms: ["MAIN"]
+  },
+  {
+    id: "west_gate_security",
+    name: "West Gate Security Station",
+    lat: 34.753676,
+    lng: -86.659444,
+    category: "Security",
+    description: "N/A",
+    hours: { open: "24/7", close: "—" },
+    extra: "N/A",
+    acronyms: ["WEST"]
+  },
+
+  // ── Academic ──
+  {
+    id: "usm",
+    name: "United Student Movement Office",
+    lat: 34.757253,
+    lng: -86.652561,
+    category: "Academic",
+    description: "N/A",
+    hours: { open: "8:00 AM", close: "6:00 PM" },
+    extra: "N/A",
+    acronyms: ["USM"]
   },
 ];

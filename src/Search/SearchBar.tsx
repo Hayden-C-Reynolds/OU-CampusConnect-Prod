@@ -16,7 +16,8 @@ const SearchBar: React.FC<Props> = ({ allLocations, onSelect }) => {
       .filter(
         (l) =>
           l.name.toLowerCase().includes(q) ||
-          (l.category || "").toLowerCase().includes(q)
+          (l.category || "").toLowerCase().includes(q) ||
+          (l.acronyms || []).some((a) => a.toLowerCase().includes(q))
       )
       .slice(0, 6);
   }, [query, allLocations]);

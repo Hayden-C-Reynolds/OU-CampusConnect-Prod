@@ -8,6 +8,7 @@ export interface CampusLocation {
   description: string;
   hours?: { open: string; close: string };
   extra?: string;
+  acronyms?: string[];
 }
 
 export interface Location {
