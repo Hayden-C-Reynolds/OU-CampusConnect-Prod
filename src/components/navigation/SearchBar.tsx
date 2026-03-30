@@ -23,6 +23,9 @@ const CATEGORY_COLOR: Record<string, string> = {
   Housing:              "#fb923c",
   School:               "#059669",
   Department:           "#0284c7",
+  Security:             "#dc2626",
+  Landmark:             "#fbbf24",
+  Admin:                "#f97316",
   default:              "#6b7280",
 };
 
@@ -40,6 +43,9 @@ const CATEGORY_ICON: Record<string, string> = {
   Housing:              "🏘️",
   School:               "🎓",
   Department:           "📋",
+  Security:             "🔒",
+  Landmark:             "📌",
+  Admin:                "🏢",
   default:              "📍",
 };
 
@@ -97,7 +103,8 @@ const SearchBar: React.FC<Props> = ({ allLocations, onSelect }) => {
         (l) =>
           l.name.toLowerCase().includes(q) ||
           (l.category || "").toLowerCase().includes(q) ||
-          (l.description || "").toLowerCase().includes(q)
+          (l.description || "").toLowerCase().includes(q) ||
+          (l.acronyms || []).some((a) => a.toLowerCase().includes(q))
       )
       .slice(0, 7);
   }, [query, allLocations]);

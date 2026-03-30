@@ -32,6 +32,9 @@ export const CATEGORY_COLOR: Record<string, string> = {
   Housing:              "#fb923c",
   School:               "#059669",
   Department:           "#0284c7",
+  Security:             "#dc2626",
+  Landmark:             "#fbbf24",
+  Admin:                "#f97316",
   default:              "#374151",
 };
 
@@ -53,6 +56,9 @@ export const CATEGORY_ICON: Record<string, string> = {
   Housing:              "🏘️",
   School:               "🎓",
   Department:           "📋",
+  Security:             "🔒",
+  Landmark:             "📌",
+  Admin:                "🏢",
   default:              "📍",
 };
 

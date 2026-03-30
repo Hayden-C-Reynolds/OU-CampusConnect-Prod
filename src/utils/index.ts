@@ -43,6 +43,13 @@ export const openDirections = (lat: number, lng: number) => {
   else window.open(`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`, "_blank");
 };
 
+export const openDirectionsByAddress = (address: string) => {
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const encoded = encodeURIComponent(address);
+  if (isIOS) window.open(`maps://?daddr=${encoded}`, "_blank");
+  else window.open(`https://www.google.com/maps/dir/?api=1&destination=${encoded}`, "_blank");
+};
+
 export const computeTopOffset = (): number => {
   const selectors = [
     ".app-search-bar", ".search-bar", ".map-search",
