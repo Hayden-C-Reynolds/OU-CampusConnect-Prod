@@ -7,12 +7,12 @@ const APP_VERSION = "1.0.0";
 
 // Add every team member here
 const contributors = [
-  {
-    name: "Ramy Campusano",
-    role: "Lead Developer & Designer",
-    emoji: "👨🏾‍💻",
-    note: "Built the map engine, UI architecture, and navigation system.",
-  },
+    {
+      name: "Ramy Campusano",
+      role: "Lead Developer & Designer",
+      emoji: "👨🏾‍💻",
+      note: "Built the map engine, UI architecture, and navigation system.",
+    },
     {
     name: "Onell Dishmey",
     role: "Developer & Designer",
