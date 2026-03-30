@@ -57,18 +57,7 @@ export const useMapInit = ({
     });
 
     mapRef.current = map;
-
-    // Navigation controls (zoom/compass)
     map.addControl(new mapboxgl.NavigationControl({ showCompass: true }), "top-right");
-
-    // ── User location dot + "Find Me" button ──
-    const geolocate = new mapboxgl.GeolocateControl({
-      positionOptions: { enableHighAccuracy: true },
-      trackUserLocation: true,   // keeps the dot updated as user moves
-      showUserHeading: true,     // shows direction the user is facing
-      showAccuracyCircle: false, // hides the accuracy radius circle
-    });
-    map.addControl(geolocate, "top-right");
 
     map.on("load", () => {
       onMapLoaded();

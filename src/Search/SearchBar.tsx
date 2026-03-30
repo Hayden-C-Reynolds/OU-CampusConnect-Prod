@@ -23,13 +23,13 @@ const SearchBar: React.FC<Props> = ({ allLocations, onSelect }) => {
   }, [query, allLocations]);
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4 mt-2 z-40 relative">
+    <div className="w-3/4 px-4 mt-2 z-40 relative">
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search for cafeteria, library, lab…"
-        className="w-full rounded-full shadow-md px-4 py-3 bg-white text-gray-900 placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full rounded-full shadow-md px-4 py-2 bg-white text-gray-900 placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
       {suggestions.length > 0 && (

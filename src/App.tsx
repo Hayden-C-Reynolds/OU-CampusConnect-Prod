@@ -15,7 +15,7 @@ import Login from './pages/Login';
 import TabBar from './components/navigation/TabBar';
 import Favorites from './pages/Favorites';
 import InfoPage from './pages/InfoPage';
-import EventsPage from './pages/Events2';
+import EventsPage from './pages/Events';
 
 // import Profile from './pages/Profile';
 // import Info from './pages/Info';

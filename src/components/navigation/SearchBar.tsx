@@ -171,14 +171,17 @@ const SearchBar: React.FC<Props> = ({ allLocations, onSelect }) => {
 
       <div
         ref={containerRef}
-        className="w-full max-w-xl mx-auto px-4 z-40"
+        className="z-40"
         style={{
           position: isKeyboardOpen ? "absolute" : "fixed",
           top: isKeyboardOpen
             ? "calc(env(safe-area-inset-top, 10px) + 10px)"
             : "env(safe-area-inset-top, 10px)",
-          left: "50%",
-          transform: "translateX(-50%)",
+          left: 0,
+          width: "85%",
+          maxWidth: "420px",
+          paddingLeft: "12px",
+          paddingRight: "8px",
           paddingTop: "env(safe-area-inset-top, 20px)",
         }}
       >
