@@ -330,12 +330,12 @@ export const campusLocations: CampusLocation[] = [
     acronyms: ["OUPD"]
   },
   {
-    id: "life_minister_service",
-    name: "Life and Minister Service",
+    id: "spiritual_life",
+    name: "Office of Spiritual Life",
     lat: 34.757139,
     lng: -86.655028,
     category: "Ministry",
-    description: "Life and Minister Service office on campus.",
+    description: "Office of Spiritual Life on campus.",
     hours: { open: "8:00 AM", close: "6:00 PM" },
     extra: "Provides ministry support and counseling services."
   },
