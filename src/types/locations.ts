@@ -331,13 +331,14 @@ export const campusLocations: CampusLocation[] = [
   },
   {
     id: "spiritual_life",
-    name: "Office of Spiritual Life",
+    name: "Office of Spiritual Life Ministries",
     lat: 34.757139,
     lng: -86.655028,
     category: "Ministry",
     description: "Office of Spiritual Life on campus.",
     hours: { open: "8:00 AM", close: "6:00 PM" },
-    extra: "Provides ministry support and counseling services."
+    extra: "Provides ministry support and counseling services.",
+    acronyms: ["OSLM"]
   },
   {
     id: "bell_tower",
