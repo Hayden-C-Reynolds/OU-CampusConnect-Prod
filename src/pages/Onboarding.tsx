@@ -25,16 +25,16 @@ const Onboarding: React.FC = () => {
   useEffect(() => {
     let loaded = 0;
     slides.forEach((slide) => {
-      const img = new Image();
-      img.src = slide.image;
-      img.onload = () => {
-        loaded++;
-        if (loaded === slides.length) {
-          setImagesLoaded(true);
-          setTimeout(() => setPhase("logo"), 600);
-          setTimeout(() => setPhase("done"), 1500);
-        }
-      };
+      // const img = new Image();
+      // img.src = slide.image;
+      // img.onload = () => {
+      loaded++;
+      if (loaded === slides.length) {
+        setImagesLoaded(true);
+        setTimeout(() => setPhase("logo"), 600);
+        setTimeout(() => setPhase("done"), 1500);
+      }
+      //};
     });
   }, []);
 
@@ -84,29 +84,25 @@ const Onboarding: React.FC = () => {
   };
 
   return (
-    <IonPage>
-      <IonContent fullscreen>
+    <IonPage className="bg-gray-950">
+      <IonContent fullscreen className="bg-gray-950">
         {/* ---------------- LOADER ---------------- */}
         {phase !== "done" && (
           <div className="loader-overlay">
             <div
-              className={`spinner ${
-                phase === "logo" ? "spinner-exit" : ""
-              }`}
+              className={`spinner ${phase === "logo" ? "spinner-exit" : ""}`}
             />
             <img
               src="https://oakwood.edu/wp-content/uploads/OU_Seal_NoTagline_2015.png"
               alt="Oakwood University"
-              className={`oakwood-logo ${
-                phase === "logo" ? "logo-enter" : ""
-              }`}
+              className={`oakwood-logo ${phase === "logo" ? "logo-enter" : ""}`}
             />
           </div>
         )}
 
         {/* ---------------- ONBOARDING ---------------- */}
         <div
-          className={`relative w-full h-full overflow-hidden transition-opacity duration-700 ${
+          className={`relative w-full h-full overflow-hidden transition-opacity duration-700 bg-gray-950 ${
             phase === "done" ? "opacity-100" : "opacity-0"
           }`}
           onTouchStart={onTouchStart}
@@ -122,8 +118,72 @@ const Onboarding: React.FC = () => {
               {/* Background */}
               <div
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${slide.image})` }}
+                // style={{ backgroundImage: `url(${slide.image})` }}
               />
+
+              {/* Floating dots (reusing same style as InfoPage but simplified) */}
+              <div className="absolute inset-0 pointer-events-none">
+                {Array.from({ length: 40 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute rounded-full animate-float"
+                    style={{
+                      width: `${Math.random() * 2 + 1}px`,
+                      height: `${Math.random() * 2 + 1}px`,
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                      backgroundColor: `rgba(251,191,36, ${Math.random() * 0.3 + 0.1})`,
+                      animation: `float ${Math.random() * 8 + 5}s linear infinite`,
+                      animationDelay: `${Math.random() * 5}s`,
+                    }}
+                  />
+                ))}
+              </div>
+
+              <style>{`
+                  @keyframes float {
+                    0% {
+                      transform: translateY(0px) translateX(0px);
+                      opacity: 0;
+                    }
+                    10% {
+                      opacity: 0.6;
+                    }
+                    90% {
+                      opacity: 0.6;
+                    }
+                    100% {
+                      transform: translateY(-100px) translateX(${Math.random() * 40 - 20}px);
+                      opacity: 0;
+                    }
+                  }
+
+                  @keyframes fadeInScale {
+                    from {
+                      opacity: 0;
+                      transform: scale(0.95);
+                    }
+                    to {
+                      opacity: 1;
+                      transform: scale(1);
+                    }
+                  }
+
+                  .fade-scale {
+                    animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                  }
+
+                  @keyframes shimmer {
+                    0% { background-position: -200% center; }
+                    100% { background-position: 200% center; }
+                  }
+
+                  .shimmer-border {
+                    background: linear-gradient(90deg, transparent, rgba(251,191,36,0.5), transparent);
+                    background-size: 200% auto;
+                    animation: shimmer 2s infinite;
+                  }
+                `}</style>
 
               {/* Gradient */}
               <div
@@ -141,18 +201,18 @@ const Onboarding: React.FC = () => {
               {/* Card */}
               <div className="relative z-10 h-full flex items-center justify-center px-6">
                 <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center text-white shadow-2xl max-w-md w-full">
-                  <IonIcon
-                    icon={slide.icon}
-                    className={`text-6xl mb-4 icon-animate ${
-                      i === activeIndex ? "icon-active" : ""
-                    }`}
-                  />
-                  <h2 className="text-2xl font-bold mb-2">
+                  <section
+                    className={`text-5xl bg-gradient-to-r from-amber-400 to-amber-500 w-24 h-24 mx-auto flex
+                      !items-center !justify-center rounded-2xl icon-animate ${
+                        i === activeIndex ? "icon-active" : ""
+                      }`}
+                  >
+                    <span>{slide.icon}</span>
+                  </section>
+                  <h2 className="text-4xl font-black tracking-tight mb-3 bg-gradient-to-r from-white via-amber-200 to-white bg-clip-text text-transparent">
                     {slide.title}
                   </h2>
-                  <p className="text-sm text-white/80">
-                    {slide.description}
-                  </p>
+                  <p className="text-sm text-white/80">{slide.description}</p>
                 </div>
               </div>
             </div>
@@ -161,18 +221,14 @@ const Onboarding: React.FC = () => {
           {/* BOTTOM */}
           <div className="absolute bottom-8 w-full flex flex-col items-center gap-4 z-20">
             {activeIndex === slides.length - 1 && (
-              <IonButton
-                className="w-3/4 slide-up-btn"
-                style={{
-                  "--background": "white",
-                  "--color": slides[activeIndex].color,
-                  "--border-radius": "9999px",
-                  fontWeight: "bold",
-                }}
+              <button
+                className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700
+                  text-white font-bold transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.99]
+                  shadow-lg hover:shadow-amber-500/25 !rounded-full w-3/4 !py-3 slide-up-btn"
                 onClick={finishOnboarding}
               >
                 Get Started
-              </IonButton>
+              </button>
             )}
 
             {/* DOTS */}
@@ -184,10 +240,10 @@ const Onboarding: React.FC = () => {
                     setActiveIndex(d);
                     setAutoSlideEnabled(false);
                   }}
-                  className={`w-3 h-3 rounded-full transition-all ${
+                  className={`w-3 h-3 !rounded-full transition-all ${
                     d === activeIndex
-                      ? "bg-white scale-125"
-                      : "bg-white/40"
+                      ? "bg-amber-400 scale-125"
+                      : "bg-amber-200/40"
                   }`}
                 />
               ))}
