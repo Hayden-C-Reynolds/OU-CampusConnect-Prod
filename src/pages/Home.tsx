@@ -107,7 +107,7 @@ const Home: React.FC = () => {
           {/* ── Floating Event Banner ── */}
           {eventInfo && !dismissed && (
             <div
-              className="absolute bottom-50 left-4 right-4 z-50 rounded-2xl px-4 py-3"
+              className="absolute top-19 left-4 right-4 z-50 rounded-2xl px-4 py-3"
               style={{
                 background: "rgba(0,0,0,0.85)",
                 border: "1px solid rgba(255,255,255,0.1)",
