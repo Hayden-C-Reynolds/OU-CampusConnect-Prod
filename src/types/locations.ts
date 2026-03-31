@@ -85,9 +85,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.754889,
     lng: -86.653139,
     category: "Academic",
-    description: "Part of the E. A. Cooper Science Complex.",
+    description: "Part of the E. A. Cooper Science Complex. Nursing and health sciences building within the E. A. Cooper Science Complex.",
     hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Labs and classrooms for science programs.",
+    extra: "Includes nursing classrooms, simulation labs, and faculty offices.",
     acronyms: ["CC", "CC1"]
   },
   {
@@ -96,9 +96,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.754611,
     lng: -86.653111,
     category: "Academic",
-    description: "Second building of the Cooper Science Complex.",
+    description: "Second building of the Cooper Science Complex.Mathematics and Computer Science building featuring classrooms, labs, and an auditorium.",
     hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Includes specialized labs.",
+    extra: "Includes computer labs, math classrooms, and a auditorium for lectures and events.",
     acronyms: ["CC", "CC2"]
   },
   {
@@ -491,9 +491,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.752904,
     lng: -86.648543,
     category: "Security",
-    description: "N/A",
-    hours: { open: "24/7", close: "—" },
-    extra: "N/A",
+    description: "Primary campus entry point with security personnel monitoring access and assisting visitors.",
+    hours: { open: "24/7", close: "-" },
+    extra: "Visitors may be required to check in or show ID.",
     acronyms: ["MAIN"]
   },
   {
@@ -502,9 +502,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.753676,
     lng: -86.659444,
     category: "Security",
-    description: "N/A",
-    hours: { open: "24/7", close: "—" },
-    extra: "N/A",
+    description: "Secondary campus entrance on the west side, providing security monitoring and controlled access.",
+    hours: { open: "24/7", close: "-" },
+    extra: "Less traffic than main entrance; may have limited hours on weekends.",
     acronyms: ["WEST"]
   },
 
