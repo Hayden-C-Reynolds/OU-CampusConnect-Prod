@@ -118,9 +118,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.757944,
     lng: -86.660861,
     category: "School",
-    description: "Private K–12 academy affiliated with Oakwood University.",
-    hours: { open: "7:30 AM", close: "4:00 PM" },
-    extra: "Hosts sports teams and community events.",
+    description: "Private K-12 Adventist school located on campus that provides primary and secondary education with a focus on academic and spiritual development.",
+    hours: { open: "8:00 AM", close: "4:00 PM" },
+    extra: "Serves both campus families and the surrounding community.",
     acronyms: ["OAA"]
   },
   {
@@ -140,9 +140,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.756639,
     lng: -86.656806,
     category: "Academic",
-    description: "Academic building with classrooms and lecture halls.",
-    hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Hosts multiple academic departments.",
+    description: "Campus residence hall providing housing accommodations for female students with shared living and study spaces.",
+    hours: { open: "6:00 AM", close: "11:00 PM" },
+    extra: "Primarily houses female student-athletes and honors students and also serves as a rehearsal space for the Voices of Triumph choir.",
     acronyms: ["PH"]
   },
   {
@@ -151,9 +151,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.756816,
     lng: -86.655523,
     category: "Academic",
-    description: "Ford Hall classrooms and offices.",
-    hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Home to general education courses.",
+    description: "Houses Communication Department offices, classrooms and student services.",
+    hours: { open: "7:00 AM", close: "5:00 PM" },
+    extra: "Adjacent to Ford Hall, the Leroy and Lois Peters Media Center houses Oakwood University Broadcast Network (OUBN), studios, offices, and editing suites.",
     acronyms: ["FH"]
   },
   {
@@ -346,9 +346,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.756050,
     lng: -86.655248,
     category: "Landmark",
-    description: "Oakwood University Bell Tower.",
+    description: "Iconic campus landmark located in the central quad, often used as a gathering point and symbol of Oakwood University.",
     hours: { open: "24/7", close: "—" },
-    extra: "An iconic landmark at the heart of campus.",
+    extra: " This landmark is often featured in student activities and as a memory spot during alumni homecomings.",
     acronyms: ["BT"]
   },
   {
