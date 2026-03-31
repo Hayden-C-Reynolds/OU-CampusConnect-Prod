@@ -4,25 +4,57 @@ import {
   IonIcon,
   IonPage,
   IonTitle,
+  useIonRouter,
 } from "@ionic/react";
 import { person } from "ionicons/icons";
 import React from "react";
 import useFirebase from "../firebase/useFirebase";
 import BetaAlert from "../components/Alerts/BetaAlert";
+import { Storage } from "@ionic/storage";
+import { IonStorageContext } from "../contexts/StorageContext";
+
+const storage = new Storage();
+storage.create();
 
 const Login: React.FC = () => {
+  const router = useIonRouter();
+  const IonStoreContext = React?.useContext(IonStorageContext);
+
   const {
-    // 🔒 AUTH DISABLED FOR BETA
-    // handleOnLogin,
-    // handleOnLoginWithGooglePopUp,
-    // handleAnswerOnRedirect,
-    handleOnLoginAsGuest,
-    // auth,
-  } = useFirebase();
+    userData,
+    handleOnCreateNewEntry,
+    handleOnGetAnExistingStore,
+    isReady,
+    isGuest,
+    setUserData,
+  } = IonStoreContext;
+  // const {
+  //   // 🔒 AUTH DISABLED FOR BETA
+  //   // handleOnLogin,
+  //   // handleOnLoginWithGooglePopUp,
+  //   // handleAnswerOnRedirect,
+  //   handleOnLoginAsGuest,
+  //   // auth,
+  // } = useFirebase();
 
   // React.useEffect(() => {
   //   handleAnswerOnRedirect();
   // }, [auth]);
+  //
+
+  const handleOnLogIn = async () => {
+    const data = await storage.set("user", {
+      id: "G000001",
+      fullName: "GUEST USER",
+      email: null,
+      profilePic: null,
+    });
+
+    if (data !== null) {
+      setUserData(data);
+      router.push("/home", "forward");
+    }
+  };
 
   return (
     <IonPage className="bg-gray-950">
@@ -146,7 +178,7 @@ const Login: React.FC = () => {
             style={{ animationDelay: "0.3s", opacity: 0 }}
           >
             <button
-              onClick={handleOnLoginAsGuest}
+              onClick={handleOnLogIn}
               className="group relative  w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold py-4 px-6 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.99] shadow-lg hover:shadow-amber-500/25"
             >
               {/* Button shine effect */}

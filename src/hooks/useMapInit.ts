@@ -2,7 +2,12 @@
 import { useEffect, MutableRefObject } from "react";
 import mapboxgl from "mapbox-gl";
 import { CampusLocation } from "../types/data";
-import { MAPBOX_TOKEN, OU_BOUNDS_SW, OU_BOUNDS_NE, TOUR_STORAGE_KEY } from "../constant/index";
+import {
+  MAPBOX_TOKEN,
+  OU_BOUNDS_SW,
+  OU_BOUNDS_NE,
+  TOUR_STORAGE_KEY,
+} from "../constant/index";
 import { makeColorForCategory, injectMarkerStyles } from "../utils";
 
 mapboxgl.accessToken = MAPBOX_TOKEN;
@@ -32,7 +37,6 @@ export const useMapInit = ({
   onMapLoaded,
   onShowTour,
 }: UseMapInitOptions) => {
-
   // Inject CSS styles for markers once
   useEffect(() => {
     injectMarkerStyles();
@@ -40,7 +44,7 @@ export const useMapInit = ({
 
   // Initialize map — only runs once when locations are ready
   useEffect(() => {
-    if (mapRef.current || !mapContainerRef.current) return;
+    if (mapRef?.current || !mapContainerRef?.current) return;
 
     const centerLng = (OU_BOUNDS_SW[0] + OU_BOUNDS_NE[0]) / 2;
     const centerLat = (OU_BOUNDS_SW[1] + OU_BOUNDS_NE[1]) / 2;
@@ -57,8 +61,10 @@ export const useMapInit = ({
     });
 
     mapRef.current = map;
-    map.addControl(new mapboxgl.NavigationControl({ showCompass: true }), "top-right");
-
+    map.addControl(
+      new mapboxgl.NavigationControl({ showCompass: true }),
+      "top-right",
+    );
 
     // ── User location dot + "Find Me" button ──
     const geolocate = new mapboxgl.GeolocateControl({
@@ -67,15 +73,17 @@ export const useMapInit = ({
       showUserHeading: true,
       showAccuracyCircle: false,
     });
-    
-map.addControl(geolocate, "top-right");
+
+    map.addControl(geolocate, "top-right");
 
     map.on("load", () => {
       onMapLoaded();
 
       try {
         map.setPadding({ top: topOffset, left: 0, right: 0, bottom: 0 });
-      } catch {}
+      } catch (e) {
+        console.error(`ERROR: RENDER: ${e}`);
+      }
 
       // Add a marker for every location
       locations.forEach((loc) => {
@@ -110,7 +118,12 @@ map.addControl(geolocate, "top-right");
 
         el.addEventListener("click", () => {
           onLocationClick(loc);
-          const padding = map.getPadding?.() || { top: topOffset, left: 0, right: 0, bottom: 0 };
+          const padding = map.getPadding?.() || {
+            top: topOffset,
+            left: 0,
+            right: 0,
+            bottom: 0,
+          };
           map.flyTo({ center: [loc.lng, loc.lat], zoom: 17, padding });
         });
 
@@ -137,14 +150,23 @@ map.addControl(geolocate, "top-right");
   // Update map style when changed
   useEffect(() => {
     if (!mapRef.current) return;
-    try { mapRef.current.setStyle(mapStyle); } catch {}
+    try {
+      mapRef?.current?.setStyle(mapStyle);
+    } catch (e) {
+      console.error(`ERROR IN LINE 156 ${e}`);
+    }
   }, [mapStyle]);
 
   // Update padding when top offset changes
   useEffect(() => {
     if (mapRef.current?.isStyleLoaded()) {
       try {
-        mapRef.current.setPadding({ top: topOffset, left: 0, right: 0, bottom: 0 });
+        mapRef.current.setPadding({
+          top: topOffset,
+          left: 0,
+          right: 0,
+          bottom: 0,
+        });
       } catch {}
     }
   }, [topOffset]);

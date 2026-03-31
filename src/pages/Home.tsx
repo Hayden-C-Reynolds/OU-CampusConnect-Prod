@@ -18,7 +18,10 @@ const parseEventDate = (date: string, time: string): Date => {
   return new Date(`${date}, 2026 ${time}`);
 };
 
-const getCurrentOrUpcomingEvent = (): { event: CampusEvent; status: "now" | "upcoming" } | null => {
+const getCurrentOrUpcomingEvent = (): {
+  event: CampusEvent;
+  status: "now" | "upcoming";
+} | null => {
   const now = new Date();
 
   // Check for currently happening event
@@ -34,9 +37,10 @@ const getCurrentOrUpcomingEvent = (): { event: CampusEvent; status: "now" | "upc
   // Find next upcoming event
   const upcoming = campusEvents
     .filter((e) => parseEventDate(e.date, e.startTime) > now)
-    .sort((a, b) =>
-      parseEventDate(a.date, a.startTime).getTime() -
-      parseEventDate(b.date, b.startTime).getTime()
+    .sort(
+      (a, b) =>
+        parseEventDate(a.date, a.startTime).getTime() -
+        parseEventDate(b.date, b.startTime).getTime(),
     );
 
   if (upcoming.length > 0) {
@@ -54,7 +58,10 @@ const Home: React.FC = () => {
   const mapRef = useRef<MapViewHandle | null>(null);
   const [locations] = useState<CampusLocation[]>(campusLocations);
   const [dismissed, setDismissed] = useState(false);
-  const [eventInfo, setEventInfo] = useState<{ event: CampusEvent; status: "now" | "upcoming" } | null>(null);
+  const [eventInfo, setEventInfo] = useState<{
+    event: CampusEvent;
+    status: "now" | "upcoming";
+  } | null>(null);
 
   const { isFavorited, toggleFavorite } = useFavorites();
   const router = useIonRouter();
@@ -73,19 +80,18 @@ const Home: React.FC = () => {
   }, []);
 
   const categoryColors: Record<string, string> = {
-    Social:    "#fbbf24",
-    Workshop:  "#60a5fa",
-    Meeting:   "#fb7223",
-    Sports:    "#34d399",
-    Music:     "#e879f9",
+    Social: "#fbbf24",
+    Workshop: "#60a5fa",
+    Meeting: "#fb7223",
+    Sports: "#34d399",
+    Music: "#e879f9",
     Spiritual: "#fb923c",
-    Ceremony:  "#a78bfa",
+    Ceremony: "#a78bfa",
   };
 
   return (
     <IonPage className="dark bg-black">
       <IonContent fullscreen className="dark bg-black text-white">
-
         <SearchBar
           allLocations={locations}
           onSelect={(loc) => mapRef.current?.openLocation(loc)}
@@ -100,7 +106,7 @@ const Home: React.FC = () => {
               loc: CampusLocation,
               add: boolean,
               onToast?: (msg: string) => void,
-              onClose?: () => void
+              onClose?: () => void,
             ) => toggleFavorite(loc, add, onToast, onClose)}
           />
 
@@ -121,17 +127,23 @@ const Home: React.FC = () => {
                   <div
                     className="w-1.5 h-1.5 rounded-full animate-pulse"
                     style={{
-                      background: eventInfo.status === "now" ? "#34d399" : "#fbbf24",
-                      boxShadow: eventInfo.status === "now"
-                        ? "0 0 6px #34d399"
-                        : "0 0 6px #fbbf24",
+                      background:
+                        eventInfo.status === "now" ? "#34d399" : "#fbbf24",
+                      boxShadow:
+                        eventInfo.status === "now"
+                          ? "0 0 6px #34d399"
+                          : "0 0 6px #fbbf24",
                     }}
                   />
                   <span
                     className="text-[10px] font-bold uppercase tracking-widest"
-                    style={{ color: eventInfo.status === "now" ? "#34d399" : "#fbbf24" }}
+                    style={{
+                      color: eventInfo.status === "now" ? "#34d399" : "#fbbf24",
+                    }}
                   >
-                    {eventInfo.status === "now" ? "Happening Now" : "Coming Up Next"}
+                    {eventInfo.status === "now"
+                      ? "Happening Now"
+                      : "Coming Up Next"}
                   </span>
                 </div>
                 <button
@@ -152,7 +164,9 @@ const Home: React.FC = () => {
                 <div className="flex items-center gap-3">
                   <span className="text-white/40 text-xs">
                     🕐 {eventInfo.event.startTime}
-                    {eventInfo.event.endTime ? ` – ${eventInfo.event.endTime}` : ""}
+                    {eventInfo.event.endTime
+                      ? ` – ${eventInfo.event.endTime}`
+                      : ""}
                   </span>
                   <span className="text-white/40 text-xs">
                     📍 {eventInfo.event.location}
@@ -164,7 +178,8 @@ const Home: React.FC = () => {
                   className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
                   style={{
                     background: `${categoryColors[eventInfo.event.category] ?? "#9ca3af"}22`,
-                    color: categoryColors[eventInfo.event.category] ?? "#9ca3af",
+                    color:
+                      categoryColors[eventInfo.event.category] ?? "#9ca3af",
                   }}
                 >
                   {eventInfo.event.category}
@@ -181,7 +196,6 @@ const Home: React.FC = () => {
             </div>
           )}
         </div>
-
       </IonContent>
     </IonPage>
   );
