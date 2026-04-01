@@ -63,14 +63,14 @@ const AppInner: React.FC = () => {
   } = context;
 
   // Tab bar visibility
-  const showTabBar = ["/home", "/favorites", "/profile", "/info"].includes(
+  const showTabBar = ["/home", "/favorites", "/info"].includes(
     location.pathname,
   );
 
   // Handle Firebase redirect
-  React.useEffect(() => {
-    handleAnswerOnRedirect();
-  }, [auth]);
+  // React.useEffect(() => {
+  //   handleAnswerOnRedirect();
+  // }, [auth]);
 
   // Spinner visibility control
   const [loading, setLoading] = React.useState(true);
@@ -98,20 +98,22 @@ const AppInner: React.FC = () => {
   return (
     <>
       <IonRouterOutlet>
-        <Route exact path="/login">
-          {userData !== null ? <Redirect to="/home" /> : <Login />}
+        <Route path="/login">
+          {userData === null ? <Login /> : <Redirect to="/home" />}
         </Route>
 
-        <Route exact path="/home">
+        <Route path="/home">
           {userData === null ? <Redirect to="/login" /> : <Home />}
         </Route>
 
         <Route exact path="/favorites">
           {userData === null ? <Redirect to="/login" /> : <Favorites />}
         </Route>
+
         <Route exact path="/info">
           {userData === null ? <Redirect to="/login" /> : <InfoPage />}
         </Route>
+
         <Route exact path="/events">
           {userData === null ? <Redirect to="/login" /> : <EventsPage />}
         </Route>

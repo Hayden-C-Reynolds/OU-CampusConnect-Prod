@@ -6,22 +6,22 @@ import {
   heartOutline,
   personOutline,
   informationCircleSharp,
-  calendarOutline
+  calendarOutline,
 } from "ionicons/icons";
 import { NavLink, useLocation } from "react-router-dom";
 import { IonStorageContext } from "../../contexts/StorageContext";
 
 const items = [
-  { to: "/home",      label: "Home",      icon: homeSharp,              isGuest: null  },
-  { to: "/favorites", label: "Favorites", icon: heartOutline,           isGuest: false },
-  { to: "/events",    label: "Events",    icon: calendarOutline,        isGuest: null  },
-  { to: "/profile",   label: "Profile",   icon: personOutline,          isGuest: false },
-  { to: "/info",      label: "Info",      icon: informationCircleSharp, isGuest: true  },
+  { to: "/home", label: "Home", icon: homeSharp, isGuest: null },
+  // { to: "/favorites", label: "Favorites", icon: heartOutline, isGuest: false },
+  { to: "/events", label: "Events", icon: calendarOutline, isGuest: null },
+  // { to: "/profile", label: "Profile", icon: personOutline, isGuest: false },
+  { to: "/info", label: "Info", icon: informationCircleSharp, isGuest: true },
 ];
 
 const TabBar: React.FC = () => {
   const location = useLocation();
-  const [hidden, setHidden]       = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [prevScroll, setPrevScroll] = useState(0);
   const { isGuest } = useContext(IonStorageContext);
 
@@ -38,7 +38,7 @@ const TabBar: React.FC = () => {
   // Show items based on auth state
   const visible = items.filter((x) => {
     if (isGuest === false) return true;
-    if (isGuest === true)  return x.isGuest === true || x.isGuest === null;
+    if (isGuest === true) return x.isGuest === true || x.isGuest === null;
     return false;
   });
 
@@ -84,9 +84,10 @@ const TabBar: React.FC = () => {
                 to={it.to}
                 className={`relative flex items-center justify-center gap-2 rounded-[20px]
                             transition-all duration-200 select-none
-                            ${selected
-                              ? "bg-amber-400 px-5 py-2.5 tab-active-glow"
-                              : "px-4 py-2.5 hover:bg-white/5 active:bg-white/10"
+                            ${
+                              selected
+                                ? "bg-amber-400 px-5 py-2.5 tab-active-glow"
+                                : "px-4 py-2.5 hover:bg-white/5 active:bg-white/10"
                             }`}
               >
                 {/* Glow bloom behind active tab */}
