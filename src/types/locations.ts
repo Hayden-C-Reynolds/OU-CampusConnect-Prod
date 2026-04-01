@@ -107,9 +107,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.754278,
     lng: -86.653083,
     category: "Academic",
-    description: "Third building of the Cooper Science Complex.",
+    description: "A specialized modular facility primarily utilized by the School of Nursing and Health Professions for faculty offices and clinical simulation preparation.",
     hours: { open: "8:00 AM", close: "8:00 PM" },
-    extra: "Classrooms and faculty offices.",
+    extra: "This building is basically bootcamp for future nurses, which is primarily why most students here don't know what a full 8 hours of sleep is.",
     acronyms: ["CC", "CC3"]
   },
   {
@@ -357,9 +357,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.754705,
     lng: -86.651706,
     category: "Landmark",
-    description: "The Quad area near the Jesus Statue.",
+    description: "It depicts the fifth station of the cross, where Simon of Cyrene is compelled to carry the heavy wooden cross for Jesus",
     hours: { open: "24/7", close: "—" },
-    extra: "Central gathering space between Wade & Cooper Complex."
+    extra: "this iconic landmark is the most popular gathering spot on campus for graduation photos and Friday night vespers"
   },
   {
     id: "mac",
