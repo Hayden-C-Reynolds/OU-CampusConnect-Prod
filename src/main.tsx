@@ -16,5 +16,5 @@ root.render(
 
 
 
-                                    // This application was developed by Onell Dishmey and Ramy Campusano
-                                    // and is currently in the version 1.0.0
+  // This application was developed by Onell Dishmey and Ramy Campusano
+  // and is currently in the version 1.0.0
