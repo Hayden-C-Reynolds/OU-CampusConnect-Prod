@@ -4,37 +4,38 @@ import { useIonRouter } from "@ionic/react";
 import { Storage } from "@ionic/storage";
 
 /*************************
-***** CREATE CONTEXT ******
-*************************/
+ ***** CREATE CONTEXT ******
+ *************************/
 interface IonStorageContextProps {
   userData: User | null; // Current logged-in user data
   handleOnCreateNewEntry: (keyName: string, value: any) => Promise<void>; // Function to create or update an entry in storage
   handleOnGetAnExistingStore: (keyName: string) => Promise<any>; // Function to get existing entry from storage
   isReady: boolean; // Indicates whether storage is initialized
   isGuest: boolean; // Indicates whether the current user is a guest
+  setUserData: any;
 }
 
 // export const IonStorageContext = createContext<IonStorageContextProps | null>(null);
 const noop = async () => {};
 
-export const IonStorageContext =
-
-  createContext<IonStorageContextProps>({
-    userData: null,
-    handleOnCreateNewEntry: noop,
-    handleOnGetAnExistingStore: async () => null,
-    isReady: false,
-    isGuest: false,
-  });
+export const IonStorageContext = createContext<IonStorageContextProps>({
+  userData: null,
+  handleOnCreateNewEntry: noop,
+  handleOnGetAnExistingStore: async () => null,
+  isReady: false,
+  isGuest: false,
+  setUserData: null,
+});
 
 /*************************
-******* ION PROVIDER *******
-*************************/
-export const IonStorageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-
+ ******* ION PROVIDER *******
+ *************************/
+export const IonStorageProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   /*************************
-  *********** VARS **********
-  ***********************/
+   *********** VARS **********
+   ***********************/
   const [userData, setUserData] = useState<User | null>(null); // Holds the user object
   const [store, setStore] = useState<Storage | null>(null); // Holds the storage instance
   const [isReady, setIsReady] = useState(false); // Storage ready flag
@@ -43,8 +44,8 @@ export const IonStorageProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const router = useIonRouter(); // Ionic router instance
 
   /*************************
-  ******** INIT STORAGE ********
-  ***********************/
+   ******** INIT STORAGE ********
+   ***********************/
   useEffect(() => {
     const initStorage = async () => {
       try {
@@ -56,7 +57,7 @@ export const IonStorageProvider: React.FC<{ children: React.ReactNode }> = ({ ch
 
         // Load existing user if any
         const existingUser = await storageInstance.get("user");
-        if (existingUser) {
+        if (existingUser && !userData) {
           setUserData(existingUser);
           if (existingUser.id === "G000001") setIsGuest(true);
         }
@@ -69,8 +70,8 @@ export const IonStorageProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   }, []);
 
   /*************************
-  ******** FUNCTIONS ********
-  ***********************/
+   ******** FUNCTIONS ********
+   ***********************/
 
   /**
    * Create or update an entry in storage
@@ -120,13 +121,13 @@ export const IonStorageProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   };
 
   /*************************
-  ********* EFFECTS *********
-  ***********************/
+   ********* EFFECTS *********
+   ***********************/
   // No extra effects needed here; storage initialization is handled above
 
   /*************************
-  ********* RETURN CONTEXT *********
-  ***********************/
+   ********* RETURN CONTEXT *********
+   ***********************/
   return (
     <IonStorageContext.Provider
       value={{
@@ -135,6 +136,7 @@ export const IonStorageProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         handleOnGetAnExistingStore,
         isReady,
         isGuest,
+        setUserData,
       }}
     >
       {children}

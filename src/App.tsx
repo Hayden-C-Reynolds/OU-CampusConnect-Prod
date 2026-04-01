@@ -1,43 +1,45 @@
-import { Redirect, Route } from 'react-router-dom';
-import { 
-  IonApp, 
-  IonRouterOutlet, 
-  setupIonicReact, 
-  IonLoading 
-} from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import { useLocation } from 'react-router-dom';
-import React from 'react';
+import { Redirect, Route } from "react-router-dom";
+import {
+  IonApp,
+  IonRouterOutlet,
+  setupIonicReact,
+  IonLoading,
+} from "@ionic/react";
+import { IonReactRouter } from "@ionic/react-router";
+import { useLocation } from "react-router-dom";
+import React from "react";
 
-import Home from './pages/Home';
-import Onboarding from './pages/Onboarding';
-import Login from './pages/Login';
-import TabBar from './components/navigation/TabBar';
-import Favorites from './pages/Favorites';
-import InfoPage from './pages/InfoPage';
-import EventsPage from './pages/Events2';
+import Home from "./pages/Home";
+import Onboarding from "./pages/Onboarding";
+import Login from "./pages/Login";
+import TabBar from "./components/navigation/TabBar";
+import Favorites from "./pages/Favorites";
+import InfoPage from "./pages/InfoPage";
+import EventsPage from "./pages/Events";
 
 // import Profile from './pages/Profile';
 // import Info from './pages/Info';
 
 /* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css';
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
-import '@ionic/react/css/palettes/dark.system.css';
-import './theme/variables.css';
+import "@ionic/react/css/core.css";
+import "@ionic/react/css/normalize.css";
+import "@ionic/react/css/structure.css";
+import "@ionic/react/css/typography.css";
+import "@ionic/react/css/padding.css";
+import "@ionic/react/css/float-elements.css";
+import "@ionic/react/css/text-alignment.css";
+import "@ionic/react/css/text-transformation.css";
+import "@ionic/react/css/flex-utils.css";
+import "@ionic/react/css/display.css";
+import "@ionic/react/css/palettes/dark.system.css";
+import "./theme/variables.css";
 import "./theme/main.css";
 
-import useFirebase from './firebase/useFirebase';
-import { IonStorageContext, IonStorageProvider } from './contexts/StorageContext';
-
+import useFirebase from "./firebase/useFirebase";
+import {
+  IonStorageContext,
+  IonStorageProvider,
+} from "./contexts/StorageContext";
 
 setupIonicReact();
 
@@ -52,10 +54,18 @@ const AppInner: React.FC = () => {
     return <IonLoading isOpen={true} message="Loading..." />;
   }
 
-  const { userData, isReady } = context;
+  const {
+    userData,
+    handleOnCreateNewEntry,
+    handleOnGetAnExistingStore,
+    isReady,
+    isGuest,
+  } = context;
 
   // Tab bar visibility
-  const showTabBar = ['/home', '/favorites', '/profile', '/info'].includes(location.pathname);
+  const showTabBar = ["/home", "/favorites", "/profile", "/info"].includes(
+    location.pathname,
+  );
 
   // Handle Firebase redirect
   React.useEffect(() => {
@@ -76,7 +86,7 @@ const AppInner: React.FC = () => {
     return (
       <IonLoading
         isOpen={loading}
-        message={'Loading...'}
+        message={"Loading..."}
         spinner="crescent"
         translucent={true}
         showBackdrop={true}
@@ -88,18 +98,18 @@ const AppInner: React.FC = () => {
   return (
     <>
       <IonRouterOutlet>
-        <Route exact path="/home">
-          {userData === null ? <Redirect to="/login" /> : <Home />}
-        </Route>
-
         <Route exact path="/login">
           {userData !== null ? <Redirect to="/home" /> : <Login />}
+        </Route>
+
+        <Route exact path="/home">
+          {userData === null ? <Redirect to="/login" /> : <Home />}
         </Route>
 
         <Route exact path="/favorites">
           {userData === null ? <Redirect to="/login" /> : <Favorites />}
         </Route>
-        <Route exact path="/info"> 
+        <Route exact path="/info">
           {userData === null ? <Redirect to="/login" /> : <InfoPage />}
         </Route>
         <Route exact path="/events">
@@ -109,7 +119,6 @@ const AppInner: React.FC = () => {
         {/* <Route exact path="/profile">
           {userData === null ? <Redirect to="/login" /> : <Profile />}
         </Route> */}
-
 
         <Route exact path="/onboarding">
           <Onboarding />

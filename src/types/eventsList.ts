@@ -17,7 +17,7 @@ export const campusEvents: CampusEvent[] = [
   {
     id: 1,
     title: "Welcome Back Bowling Party (JL Moran Chapter)",
-    date: "Wednesday, April 1",
+    date: "Wednesday, March 29",
     startTime: "12:00 PM",
     endTime: "4:00 PM",
     location: "Stars & Strikes",

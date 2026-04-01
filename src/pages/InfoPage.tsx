@@ -22,10 +22,28 @@ const contributors = [
   {
     name: "Hayden Reynolds",
     role: "Developer & Designer",
-    emoji: "🎨",
+    emoji: "👨🏾‍💻",
     note: "Developed & designed the visual language and campus marker system.",
   },
-{
+  {
+    name: "Nyla Percy",
+    role: "Resource & UX Designer",
+    emoji: "🎨",
+    note: "Researched and designed the information architecture.",
+  },
+  {
+    name: "QueAnn Pryce",
+    role: "Resource & UX Designer",
+    emoji: "🎨",
+    note: "Researched and designed the information architecture.",
+  },
+  {
+    name: "Chris-Anna Jhonson",
+    role: "Resource & UX Designer",
+    emoji: "🎨",
+    note: "Researched and designed the information architecture.",
+  },
+  {
     name: "Felipe Antonio",
     role: "Test Engineer & UX Researcher",
     emoji: "👨🏾‍💻",
