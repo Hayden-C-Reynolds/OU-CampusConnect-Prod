@@ -55,7 +55,7 @@ const Onboarding: React.FC = () => {
       const seen = await storage.get("onboardingSeen");
       if (seen === "true") router.push("/login", "root");
     })();
-  }, [router]);
+  }, []);
 
   const finishOnboarding = async () => {
     await storage.set("onboardingSeen", "true");
