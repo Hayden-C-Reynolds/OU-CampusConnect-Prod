@@ -49,6 +49,18 @@ const contributors = [
     emoji: "👨🏾‍💻",
     note: "Built the map engine, UI architecture, and navigation system.",
   },
+  {
+    name: "Vuyo",
+    role: "Resource & UX Designer",
+    emoji: "🎨",
+    note: "Researched and designed the information architecture.",
+  },
+    {
+    name: "Angelo Bowens",
+    role: "Resource & UX Designer",
+    emoji: "🎨",
+    note: "Researched and designed the information architecture.",
+  },
 ];
 
 const features = [
