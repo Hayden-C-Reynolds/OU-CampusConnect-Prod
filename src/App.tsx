@@ -8,6 +8,7 @@ import {
 import { IonReactRouter } from "@ionic/react-router";
 import { useLocation } from "react-router-dom";
 import React from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import Home from "./pages/Home";
 import Onboarding from "./pages/Onboarding";
@@ -139,6 +140,7 @@ const AppInner: React.FC = () => {
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
+      <Analytics />
       <IonStorageProvider>
         <AppInner />
       </IonStorageProvider>
