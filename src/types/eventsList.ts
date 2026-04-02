@@ -517,4 +517,15 @@ export const campusEvents: CampusEvent[] = [
     locationId: "bradford_cleveland",
     address: null,
   },
+  {
+  id: 46,
+  title: "Alumni vs. Students Soccer Game",
+  date: "Sunday, April 5",
+  startTime: "2:30 PM",
+  endTime: "4:00 PM",
+  location: "Soccer Field",
+  category: "Sports",
+  locationId: "soccer_field",
+  address: null,
+},
 ];
