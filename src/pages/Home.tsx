@@ -11,9 +11,8 @@ import { campusEvents, CampusEvent } from "../types/eventsList";
 
 /*************************
  ******** HELPERS ********
- *********************** */
+ *************************/
 
-// Parse "Wednesday, April 2" + "6:00 PM" into a Date object (uses 2026)
 const parseEventDate = (date: string, time: string): Date => {
   return new Date(`${date}, 2026 ${time}`);
 };
@@ -24,40 +23,47 @@ const getCurrentOrUpcomingEvent = (): {
 } | null => {
   const now = new Date();
 
-  // Check for currently happening event
   for (const event of campusEvents) {
     if (!event.endTime) continue;
     const start = parseEventDate(event.date, event.startTime);
-    const end = parseEventDate(event.date, event.endTime);
+    const end   = parseEventDate(event.date, event.endTime);
     if (now >= start && now <= end) {
       return { event, status: "now" };
     }
   }
 
-  // Find next upcoming event
   const upcoming = campusEvents
     .filter((e) => parseEventDate(e.date, e.startTime) > now)
     .sort(
       (a, b) =>
         parseEventDate(a.date, a.startTime).getTime() -
-        parseEventDate(b.date, b.startTime).getTime(),
+        parseEventDate(b.date, b.startTime).getTime()
     );
 
-  if (upcoming.length > 0) {
-    return { event: upcoming[0], status: "upcoming" };
-  }
+  if (upcoming.length > 0) return { event: upcoming[0], status: "upcoming" };
 
   return null;
 };
 
+const categoryColors: Record<string, string> = {
+  Social:    "#fbbf24",
+  Workshop:  "#60a5fa",
+  Meeting:   "#fb7223",
+  Sports:    "#34d399",
+  Music:     "#e879f9",
+  Spiritual: "#fb923c",
+  Ceremony:  "#a78bfa",
+};
+
 /*************************
- ******** HOME PAGE ********
- *********************** */
+ ******** HOME PAGE ******
+ *************************/
 
 const Home: React.FC = () => {
   const mapRef = useRef<MapViewHandle | null>(null);
   const [locations] = useState<CampusLocation[]>(campusLocations);
   const [dismissed, setDismissed] = useState(false);
+  const [exiting,   setExiting]   = useState(false);
   const [eventInfo, setEventInfo] = useState<{
     event: CampusEvent;
     status: "now" | "upcoming";
@@ -68,30 +74,46 @@ const Home: React.FC = () => {
 
   useHighlightLocation({ mapRef, locations });
 
+  // Fetch event info + refresh every minute
   useEffect(() => {
     setEventInfo(getCurrentOrUpcomingEvent());
-
-    // Refresh every minute
-    const interval = setInterval(() => {
-      setEventInfo(getCurrentOrUpcomingEvent());
-    }, 60000);
-
+    const interval = setInterval(() => setEventInfo(getCurrentOrUpcomingEvent()), 60000);
     return () => clearInterval(interval);
   }, []);
 
-  const categoryColors: Record<string, string> = {
-    Social: "#fbbf24",
-    Workshop: "#60a5fa",
-    Meeting: "#fb7223",
-    Sports: "#34d399",
-    Music: "#e879f9",
-    Spiritual: "#fb923c",
-    Ceremony: "#a78bfa",
+  // Animated dismiss — plays exit animation then removes banner
+  const handleDismiss = () => {
+    setExiting(true);
+    setTimeout(() => setDismissed(true), 250);
   };
+
+  // Auto-dismiss after 6 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => handleDismiss(), 6000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <IonPage className="dark bg-black">
       <IonContent fullscreen className="dark bg-black text-white">
+
+        <style>{`
+          @keyframes bannerSlideIn {
+            from { opacity: 0; transform: translateY(-12px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+          }
+          @keyframes bannerSlideOut {
+            from { opacity: 1; transform: translateY(0) scale(1); }
+            to   { opacity: 0; transform: translateY(-12px) scale(0.97); }
+          }
+          .banner-enter {
+            animation: bannerSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+          }
+          .banner-exit {
+            animation: bannerSlideOut 0.25s cubic-bezier(0.4, 0, 1, 1) forwards;
+          }
+        `}</style>
+
         <SearchBar
           allLocations={locations}
           onSelect={(loc) => mapRef.current?.openLocation(loc)}
@@ -106,19 +128,21 @@ const Home: React.FC = () => {
               loc: CampusLocation,
               add: boolean,
               onToast?: (msg: string) => void,
-              onClose?: () => void,
+              onClose?: () => void
             ) => toggleFavorite(loc, add, onToast, onClose)}
           />
 
           {/* ── Floating Event Banner ── */}
           {eventInfo && !dismissed && (
             <div
-              className="absolute top-19 left-4 right-4 z-50 rounded-2xl px-4 py-3"
+              className={`absolute top-19 left-4 right-4 z-50 rounded-2xl px-4 py-3 ${
+                exiting ? "banner-exit" : "banner-enter"
+              }`}
               style={{
-                background: "rgba(0,0,0,0.85)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                background:    "rgba(0,0,0,0.85)",
+                border:        "1px solid rgba(255,255,255,0.1)",
                 backdropFilter: "blur(12px)",
-                boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+                boxShadow:     "0 8px 32px rgba(0,0,0,0.4)",
               }}
             >
               {/* Top row — status badge + dismiss */}
@@ -127,12 +151,10 @@ const Home: React.FC = () => {
                   <div
                     className="w-1.5 h-1.5 rounded-full animate-pulse"
                     style={{
-                      background:
-                        eventInfo.status === "now" ? "#34d399" : "#fbbf24",
-                      boxShadow:
-                        eventInfo.status === "now"
-                          ? "0 0 6px #34d399"
-                          : "0 0 6px #fbbf24",
+                      background: eventInfo.status === "now" ? "#34d399" : "#fbbf24",
+                      boxShadow:  eventInfo.status === "now"
+                        ? "0 0 6px #34d399"
+                        : "0 0 6px #fbbf24",
                     }}
                   />
                   <span
@@ -141,14 +163,13 @@ const Home: React.FC = () => {
                       color: eventInfo.status === "now" ? "#34d399" : "#fbbf24",
                     }}
                   >
-                    {eventInfo.status === "now"
-                      ? "Happening Now"
-                      : "Coming Up Next"}
+                    {eventInfo.status === "now" ? "Happening Now" : "Coming Up Next"}
                   </span>
                 </div>
+
                 <button
-                  onClick={() => setDismissed(true)}
-                  className="text-white/40 hover:text-white/80 text-xs px-1"
+                  onClick={handleDismiss}
+                  className="text-white/40 hover:text-white/80 text-xl px-1 transition-colors"
                 >
                   ✕
                 </button>
@@ -164,9 +185,7 @@ const Home: React.FC = () => {
                 <div className="flex items-center gap-3">
                   <span className="text-white/40 text-xs">
                     🕐 {eventInfo.event.startTime}
-                    {eventInfo.event.endTime
-                      ? ` – ${eventInfo.event.endTime}`
-                      : ""}
+                    {eventInfo.event.endTime ? ` – ${eventInfo.event.endTime}` : ""}
                   </span>
                   <span className="text-white/40 text-xs">
                     📍 {eventInfo.event.location}
@@ -178,8 +197,7 @@ const Home: React.FC = () => {
                   className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
                   style={{
                     background: `${categoryColors[eventInfo.event.category] ?? "#9ca3af"}22`,
-                    color:
-                      categoryColors[eventInfo.event.category] ?? "#9ca3af",
+                    color:       categoryColors[eventInfo.event.category] ?? "#9ca3af",
                   }}
                 >
                   {eventInfo.event.category}
@@ -189,13 +207,14 @@ const Home: React.FC = () => {
               {/* View all events link */}
               <button
                 onClick={() => router.push("/events")}
-                className="mt-2 text-xs text-white/50 hover:text-white/80 underline"
+                className="mt-2 text-xs text-white/50 hover:text-white/80 underline transition-colors"
               >
                 View all events →
               </button>
             </div>
           )}
         </div>
+
       </IonContent>
     </IonPage>
   );
