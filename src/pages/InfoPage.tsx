@@ -7,61 +7,80 @@ const APP_VERSION = "1.0.0";
 
 // Add every team member here
 const contributors = [
-    {
-      name: "Ramy Campusano",
-      role: "Lead Developer & Designer",
-      emoji: "👨🏾‍💻",
-      note: "Built the map engine, UI architecture, and navigation system.",
-    },
-    {
+  {
+    name: "Ramy Campusano",
+    role: "Lead Developer & Designer",
+    emoji: "👨🏾‍💻",
+    note: "Built the map engine, UI architecture, and navigation system.",
+  },
+  {
+    name: "Hayden Reynolds",
+    role: "Developer & Product Lead",
+    emoji: "👨🏾‍💻",
+    note: "Built the events page, campus locations, deployment, and launch strategy.",
+  },
+  {
     name: "Onell Dishmey",
     role: "Developer & Designer",
     emoji: "👨🏾‍💻",
     note: "Built the map engine, UI architecture, and navigation system.",
   },
   {
-    name: "Hayden Reynolds",
-    role: "Developer & Designer",
-    emoji: "👨🏾‍💻",
-    note: "Developed & designed the visual language and campus marker system.",
-  },
-  {
-    name: "Nyla Percy",
-    role: "Resource & UX Designer",
-    emoji: "🎨",
-    note: "Researched and designed the information architecture.",
-  },
-  {
-    name: "QueAnn Pryce",
-    role: "Resource & UX Designer",
-    emoji: "🎨",
-    note: "Researched and designed the information architecture.",
-  },
-  {
-    name: "Chris-Anna Johnson",
-    role: "Resource & UX Designer",
-    emoji: "🎨",
-    note: "Researched and designed the information architecture.",
-  },
-  {
     name: "Felipe Antonio",
-    role: "Test Engineer & UX Researcher",
+    role: "Developer & UX Researcher",
     emoji: "👨🏾‍💻",
     note: "Built the map engine, UI architecture, and navigation system.",
   },
   {
-    name: "Vuyo",
-    role: "Resource & UX Designer",
-    emoji: "🎨",
-    note: "Researched and designed the information architecture.",
+    name: "Ethan Morency",
+    role: "Technical Project Lead",
+    emoji: "🏗️",
+    note: "Led sprints, guided project direction, and built the feature timeline.",
   },
-    {
+  {
+    name: "Nyla Percy",
+    role: "Data Team Lead",
+    emoji: "📊",
+    note: "Led the data team, coordinated timelines, and built the member training program.",
+  },
+  {
+    name: "Chris-Anna Johnson",
+    role: "Developer & Data",
+    emoji: "📋",
+    note: "Researched and compiled campus building data for the map.",
+  },
+  {
     name: "Angelo Bowens",
-    role: "Resource & UX Designer",
-    emoji: "🎨",
-    note: "Researched and designed the information architecture.",
+    role: "Developer & Data",
+    emoji: "📋",
+    note: "Researched and compiled campus building data for the map.",
+  },
+  {
+    name: "Vuyo Sibanda",
+    role: "Developer & Data",
+    emoji: "📍",
+    note: "Verified and updated campus building location data.",
+  },
+  {
+    name: "Kaelan Smith",
+    role: "Developer & Data",
+    emoji: "📍",
+    note: "Verified and updated campus building location data.",
+  },
+  {
+    name: "Ronnie Nicholson",
+    role: "Developer & Data",
+    emoji: "📍",
+    note: "Verified and updated campus building location data.",
+  },
+  {
+    name: "QueAnn Pryce",
+    role: "Developer & Research",
+    emoji: "📋",
+    note: "Researched building information and provided key project support.",
   },
 ];
+ 
 
 const features = [
   { icon: "🗺️", label: "Interactive Campus Map",  desc: "Explore every building with a tap."       },
