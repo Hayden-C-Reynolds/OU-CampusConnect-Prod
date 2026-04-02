@@ -7,23 +7,35 @@ const APP_VERSION = "1.0.0";
 
 // Add every team member here
 const contributors = [
-    {
-      name: "Ramy Campusano",
-      role: "Lead Developer & Designer",
-      emoji: "👨🏾‍💻",
-      note: "Built the map engine, UI architecture, and navigation system.",
-    },
-    {
+  {
+    name: "Ramy Campusano",
+    role: "Lead Developer & Designer",
+    emoji: "👨🏾‍💻",
+    note: "Built the map engine, UI architecture, and navigation system.",
+  },
+  {
+    name: "Hayden Reynolds",
+    role: "Developer & Product Lead",
+    emoji: "👨🏾‍💻",
+    note: "Built the events page, campus locations, deployment, and launch strategy.",
+  },
+  {
     name: "Onell Dishmey",
     role: "Developer & Designer",
     emoji: "👨🏾‍💻",
     note: "Built the map engine, UI architecture, and navigation system.",
   },
   {
-    name: "Hayden Reynolds",
-    role: "Developer & Designer",
+    name: "Felipe Antonio",
+    role: "Developer & UX Researcher",
     emoji: "👨🏾‍💻",
-    note: "Developed & designed the visual language and campus marker system.",
+    note: "Built the map engine, UI architecture, and navigation system.",
+  },
+  {
+    name: "Ethan Morency",
+    role: "Technical Project Lead",
+    emoji: "🏗️",
+    note: "Led sprints, guided project direction, and built the feature timeline.",
   },
     {
     name: "Felipe Antonio",
@@ -68,6 +80,7 @@ const contributors = [
     note: "Researched and designed the information architecture.",
   },
 ];
+ 
 
 const features = [
   { icon: "🗺️", label: "Interactive Campus Map",  desc: "Explore every building with a tap."       },
@@ -216,6 +229,62 @@ const InfoPage: React.FC = () => {
               Your pocket guide to navigating Oakwood University campus —
               every building, department, and hour of operation, right at your fingertips.
             </p>
+          </div>
+
+          
+
+          {/* Divider */}
+          <div className="relative px-6 mb-8">
+            <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          </div>
+
+          {/* ── Community ── */}
+          <div className="relative px-5 mb-10 fade-up delay-5">
+            <p className="text-[10px] font-black uppercase tracking-widest text-gray-600 mb-4 px-1">
+              Community
+            </p>
+
+            {/* Feedback button */}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdshFRbrQLSRHuDbsU8K7MHbVxw5HBq_tVPjVVp6djGC2zMyQ/viewform?usp=dialog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 rounded-2xl p-4 border border-white/6 mb-3"
+              style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))" }}
+            >
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+                style={{ background: "rgba(251,191,36,0.1)", border: "1px solid rgba(251,191,36,0.2)" }}
+              >
+                💬
+              </div>
+              <div className="flex-1">
+                <p className="text-sm font-bold text-white mb-0.5">Give Feedback</p>
+                <p className="text-xs text-gray-500 leading-snug">Help us improve the app — let us know what you think.</p>
+              </div>
+              <span className="text-gray-600 text-sm">→</span>
+            </a>
+
+            {/* Submit event button */}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe0aFmvzrwS905tf9U1yTzKXg2Lvxm4geNbeLtvDjxcMhtwcw/viewform?usp=dialog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 rounded-2xl p-4 border border-white/6"
+              style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))" }}
+            >
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+                style={{ background: "rgba(251,191,36,0.1)", border: "1px solid rgba(251,191,36,0.2)" }}
+              >
+                📅
+              </div>
+              <div className="flex-1">
+                <p className="text-sm font-bold text-white mb-0.5">Submit an Event</p>
+                <p className="text-xs text-gray-500 leading-snug">Know of a campus event? Submit it and we'll add it to the app.</p>
+              </div>
+              <span className="text-gray-600 text-sm">→</span>
+            </a>
           </div>
 
           {/* Divider */}

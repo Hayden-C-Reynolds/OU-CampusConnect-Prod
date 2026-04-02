@@ -63,9 +63,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.756611,
     lng: -86.654611,
     category: "Admin",
-    description: "Student residence hall.",
-    hours: { open: "24/7", close: "—" },
-    extra: "Located near Cooper Complex.",
+    description: "Main building for many student services on campus.",
+    hours: { open: "8:00 AM", close: "5:00 PM" },
+    extra: "Contains Division of Enrollment and Retention Services, the Registrar's Office, Financial Aid, Center for Student Succcess, Career Connections, Office of faculty development, the testing center, and the reading and writing lab.",
     acronyms: ["CH", "CUN"]
   },
   {
@@ -74,9 +74,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.755806,
     lng: -86.655389,
     category: "Academic",
-    description: "Student housing and community events.",
+    description: "Contains Department of English and Foreign Languages and the Department of History and Political Science.",
     hours: { open: "24/7", close: "—" },
-    extra: "Popular among upperclassmen.",
+    extra: "Moran Hall also contains Oakwood University's Language Lab and has an audatorium that can seat 500 people. Students helped in the construction of Moran Hall in exchange for tuition and money.",
     acronyms: ["MH"]
   },
   {
@@ -193,9 +193,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.755722,
     lng: -86.654083,
     category: "Dormitory",
-    description: "Student residence hall.",
-    hours: { open: "24/7", close: "—" },
-    extra: "Known for community events.",
+    description: "Campus residence hall providing housing accommodations for female freshman.",
+    hours: { open: "6:00 AM", close: "10:00 PM" },
+    extra: "Dean Office Hours: 8:00 AM - 5:00 PM",
     acronyms: ["CH"]
   },
   {
@@ -203,10 +203,10 @@ export const campusLocations: CampusLocation[] = [
     name: "Burrell Hall",
     lat: 34.755250,
     lng: -86.655556,
-    category: "Dormitory",
-    description: "Residence hall.",
-    hours: { open: "24/7", close: "—" },
-    extra: "Provides traditional dorm housing.",
+    category: "Academic",
+    description: "Campus education hall that primarily houses communication classes and offices",
+    hours: { open: "8:00 AM", close: "5:00 PM" },
+    extra: "Friday Hours: 8:00 AM - 12:00 PM",
     acronyms: ["BH"]
   },
   {
@@ -367,9 +367,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.757345,
     lng: -86.657892,
     category: "Sports",
-    description: "N/A",
+    description: "Contians Oakwood University's skating rink and racquetball courts.",
     hours: { open: "24/7", close: "—" },
-    extra: "N/A",
+    extra: "The building is currently in a 3 phase renovation program.",
     acronyms: ["MAC"]
   },
   {
@@ -378,9 +378,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.757383,
     lng: -86.657217,
     category: "Sports",
-    description: "N/A",
-    hours: { open: "24/7", close: "—" },
-    extra: "N/A",
+    description: "Campus swimming facitily containing an olympic-size and the offices for the Department of Health and Human Sciences.",
+    hours: { open: "3:00 PM", close: "9:00 PM" },
+    extra: "The Natatorium is also used for summer swimming lessons.",
     acronyms: ["NAT"]
   },
   {
@@ -389,7 +389,7 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.757421,
     lng: -86.656783,
     category: "Sports",
-    description: "N/A",
+    description: "Gymnasium for stundent classes and recreation",
     hours: { open: "24/7", close: "—" },
     extra: "N/A",
     acronyms: ["AA", "GYM"]
@@ -400,9 +400,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.754848,
     lng: -86.650735,
     category: "Dormitory",
-    description: "N/A",
-    hours: { open: "24/7", close: "—" },
-    extra: "N/A",
+    description: "Campus residence hall providing housing accommodations for female upperclasswomen.",
+    hours: { open: "6:00 AM", close: "10:00 PM" },
+    extra: "Dean Office Hours: 8:00 AM - 5:00 PM",
     acronyms: ["WH"]
   },
   {
@@ -433,9 +433,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.752621,
     lng: -86.649850,
     category: "Sports",
-    description: "N/A",
-    hours: { open: "24/7", close: "—" },
-    extra: "N/A",
+    description: "The headquarters for the Department of Social Work, featuring versatile halls used for academic seminars, community outreach, and university social functions.",
+    hours: { open: "9:00 AM", close: "5:00 PM" },
+    extra: "The unofficial 'Wedding Capital' of campus—if you see someone in a tuxedo on a sunday, they are probably heading here.",
     acronyms: ["FAM"]
   },
   {
@@ -515,9 +515,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.757253,
     lng: -86.652561,
     category: "Academic",
-    description: "N/A",
+    description: "This is the central hub for Oakwood’s student government where leaders advocate for student interests and coordinate campus life.",
     hours: { open: "8:00 AM", close: "6:00 PM" },
-    extra: "N/A",
+    extra: "The USM house is the heart of campus spirit—stop by to learn about upcoming social events or to voice your ideas to your student representatives.",
     acronyms: ["USM"]
   },
 ];

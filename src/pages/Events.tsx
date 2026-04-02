@@ -71,6 +71,13 @@ const EventsPage: React.FC = () => {
     return acc;
   }, {});
 
+  Object.keys(grouped).forEach((date) => {
+    grouped[date].sort((a, b) => {
+      return new Date(`${a.date}, 2026 ${a.startTime}`).getTime() - 
+        new Date(`${b.date}, 2026 ${b.startTime}`).getTime();
+    });
+  });
+
   // Split into upcoming and past, sorted chronologically
   const upcomingDates = Object.keys(grouped)
     .filter((date) => !isDatePast(date))
