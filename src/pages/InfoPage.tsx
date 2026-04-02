@@ -6,12 +6,19 @@ import { IonPage, IonContent } from "@ionic/react";
 const APP_VERSION = "1.0.0";
 
 // Add every team member here
+// Add every team member here
 const contributors = [
   {
     name: "Ramy Campusano",
     role: "Lead Developer & Designer",
     emoji: "👨🏾‍💻",
     note: "Built the map engine, UI architecture, and navigation system.",
+  },
+  {
+    name: "Ethan Morency",
+    role: "Technical Project Lead",
+    emoji: "🏗️",
+    note: "Led sprints, guided project direction, and built the feature timeline.",
   },
   {
     name: "Hayden Reynolds",
@@ -27,57 +34,51 @@ const contributors = [
   },
   {
     name: "Felipe Antonio",
-    role: "Developer & UX Researcher",
-    emoji: "👨🏾‍💻",
-    note: "Built the map engine, UI architecture, and navigation system.",
-  },
-  {
-    name: "Ethan Morency",
-    role: "Technical Project Lead",
-    emoji: "🏗️",
-    note: "Led sprints, guided project direction, and built the feature timeline.",
-  },
-    {
-    name: "Felipe Antonio",
     role: "Test Engineer & UX Researcher",
     emoji: "👨🏾‍💻",
     note: "Built the map engine, UI architecture, and navigation system.",
   },
   {
     name: "Nyla Percy",
-    role: "Lead Information Architect",
-    emoji: "🎨",
-    note: "Researched and designed the information architecture.",
+    role: "Data Team Lead",
+    emoji: "📊",
+    note: "Led the data team, coordinated timelines, and built the member training program.",
+  },
+  {
+    name: "Chris-Anna Johnson",
+    role: "Developer & Data",
+    emoji: "📋",
+    note: "Researched and compiled campus building data for the map.",
+  },
+  {
+    name: "Angelo Bowens",
+    role: "Developer & Data",
+    emoji: "📋",
+    note: "Researched and compiled campus building data for the map.",
+  },
+  {
+    name: "Vuyo Sibanda",
+    role: "Developer & Data",
+    emoji: "📍",
+    note: "Verified and updated campus building location data.",
+  },
+  {
+    name: "Kaelan Smith",
+    role: "Developer & Data",
+    emoji: "📍",
+    note: "Verified and updated campus building location data.",
+  },
+  {
+    name: "Ronnie Nicholson",
+    role: "Developer & Data",
+    emoji: "📍",
+    note: "Verified and updated campus building location data.",
   },
   {
     name: "QueAnn Pryce",
-    role: "Information Architect",
-    emoji: "🎨",
-    note: "Researched and designed the information architecture.",
-  },
-  {
-    name: "Chris-Anna Jhonson",
-    role: "Information Architect",
-    emoji: "🎨",
-    note: "Researched and designed the information architecture.",
-  },
-  {
-    name: "Vuyo",
-    role: "Information Architect",
-    emoji: "🎨",
-    note: "Researched and designed the information architecture.",
-  },
-    {
-    name: "Angelo Bowens",
-    role: "Information Architect",
-    emoji: "🎨",
-    note: "Researched and designed the information architecture.",
-  },
-  {
-    name: "Sharie Angus",
-    role: "Information Architect",
-    emoji: "🎨",
-    note: "Researched and designed the information architecture.",
+    role: "Developer & Research",
+    emoji: "📋",
+    note: "Researched building information and provided key project support.",
   },
 ];
  
