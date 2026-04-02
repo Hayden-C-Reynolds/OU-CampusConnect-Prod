@@ -193,9 +193,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.755722,
     lng: -86.654083,
     category: "Dormitory",
-    description: "Student residence hall.",
-    hours: { open: "24/7", close: "—" },
-    extra: "Known for community events.",
+    description: "Campus residence hall providing housing accommodations for female freshman.",
+    hours: { open: "6:00 AM", close: "10:00 PM" },
+    extra: "Dean Office Hours: 8:00 AM - 5:00 PM",
     acronyms: ["CH"]
   },
   {
@@ -203,10 +203,10 @@ export const campusLocations: CampusLocation[] = [
     name: "Burrell Hall",
     lat: 34.755250,
     lng: -86.655556,
-    category: "Dormitory",
-    description: "Residence hall.",
-    hours: { open: "24/7", close: "—" },
-    extra: "Provides traditional dorm housing.",
+    category: "Academic",
+    description: "Campus education hall that primarily houses communication classes and offices",
+    hours: { open: "8:00 AM", close: "5:00 PM" },
+    extra: "Friday Hours: 8:00 AM - 12:00 PM",
     acronyms: ["BH"]
   },
   {
@@ -389,7 +389,7 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.757421,
     lng: -86.656783,
     category: "Sports",
-    description: "N/A",
+    description: "Gymnasium for stundent classes and recreation",
     hours: { open: "24/7", close: "—" },
     extra: "N/A",
     acronyms: ["AA", "GYM"]
@@ -400,9 +400,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.754848,
     lng: -86.650735,
     category: "Dormitory",
-    description: "N/A",
-    hours: { open: "24/7", close: "—" },
-    extra: "N/A",
+    description: "Campus residence hall providing housing accommodations for female upperclasswomen.",
+    hours: { open: "6:00 AM", close: "10:00 PM" },
+    extra: "Dean Office Hours: 8:00 AM - 5:00 PM",
     acronyms: ["WH"]
   },
   {
