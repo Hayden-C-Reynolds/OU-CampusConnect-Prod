@@ -433,9 +433,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.752621,
     lng: -86.649850,
     category: "Sports",
-    description: "N/A",
-    hours: { open: "24/7", close: "—" },
-    extra: "N/A",
+    description: "The headquarters for the Department of Social Work, featuring versatile halls used for academic seminars, community outreach, and university social functions.",
+    hours: { open: "9:00 AM", close: "5:00 PM" },
+    extra: "The unofficial 'Wedding Capital' of campus—if you see someone in a tuxedo on a sunday, they are probably heading here.",
     acronyms: ["FAM"]
   },
   {
@@ -515,9 +515,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.757253,
     lng: -86.652561,
     category: "Academic",
-    description: "N/A",
+    description: "This is the central hub for Oakwood’s student government where leaders advocate for student interests and coordinate campus life.",
     hours: { open: "8:00 AM", close: "6:00 PM" },
-    extra: "N/A",
+    extra: "The USM house is the heart of campus spirit—stop by to learn about upcoming social events or to voice your ideas to your student representatives.",
     acronyms: ["USM"]
   },
 ];
