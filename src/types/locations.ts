@@ -63,9 +63,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.756611,
     lng: -86.654611,
     category: "Admin",
-    description: "Student residence hall.",
-    hours: { open: "24/7", close: "—" },
-    extra: "Located near Cooper Complex.",
+    description: "Main building for many student services on campus.",
+    hours: { open: "8:00 AM", close: "5:00 PM" },
+    extra: "Contains Division of Enrollment and Retention Services, the Registrar's Office, Financial Aid, Center for Student Succcess, Career Connections, Office of faculty development, the testing center, and the reading and writing lab.",
     acronyms: ["CH", "CUN"]
   },
   {
@@ -74,9 +74,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.755806,
     lng: -86.655389,
     category: "Academic",
-    description: "Student housing and community events.",
+    description: "Contains Department of English and Foreign Languages and the Department of History and Political Science.",
     hours: { open: "24/7", close: "—" },
-    extra: "Popular among upperclassmen.",
+    extra: "Moran Hall also contains Oakwood University's Language Lab and has an audatorium that can seat 500 people. Students helped in the construction of Moran Hall in exchange for tuition and money.",
     acronyms: ["MH"]
   },
   {
@@ -367,9 +367,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.757345,
     lng: -86.657892,
     category: "Sports",
-    description: "N/A",
+    description: "Contians Oakwood University's skating rink and racquetball courts.",
     hours: { open: "24/7", close: "—" },
-    extra: "N/A",
+    extra: "The building is currently in a 3 phase renovation program.",
     acronyms: ["MAC"]
   },
   {
@@ -378,9 +378,9 @@ export const campusLocations: CampusLocation[] = [
     lat: 34.757383,
     lng: -86.657217,
     category: "Sports",
-    description: "N/A",
-    hours: { open: "24/7", close: "—" },
-    extra: "N/A",
+    description: "Campus swimming facitily containing an olympic-size and the offices for the Department of Health and Human Sciences.",
+    hours: { open: "3:00 PM", close: "9:00 PM" },
+    extra: "The Natatorium is also used for summer swimming lessons.",
     acronyms: ["NAT"]
   },
   {
