@@ -247,7 +247,7 @@ const InfoPage: React.FC = () => {
 
             {/* Feedback button */}
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdshFRbrQLSRHuDbsU8K7MHbVxw5HBq_tVPjVVp6djGC2zMyQ/viewform?usp=dialog"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe0aFmvzrwS905tf9U1yTzKXg2Lvxm4geNbeLtvDjxcMhtwcw/viewform?usp=dialog"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 rounded-2xl p-4 border border-white/6 mb-3"
@@ -268,7 +268,7 @@ const InfoPage: React.FC = () => {
 
             {/* Submit event button */}
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSe0aFmvzrwS905tf9U1yTzKXg2Lvxm4geNbeLtvDjxcMhtwcw/viewform?usp=dialog"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdshFRbrQLSRHuDbsU8K7MHbVxw5HBq_tVPjVVp6djGC2zMyQ/viewform?usp=dialog"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 rounded-2xl p-4 border border-white/6"
