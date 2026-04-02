@@ -50,9 +50,9 @@ export const campusEvents: CampusEvent[] = [
   {
     id: 4,
     title: "OU On the Yard",
-    date: "Wednesday, April 1",
-    startTime: "9:00 PM",
-    endTime: "11:00 PM",
+    date: "Sunday, April 19",
+    startTime: "2:00 PM",
+    endTime: "4:00 PM",
     location: "The Quad (between Wade & Cooper Complex)",
     category: "Social",
     locationId: "jesus_statue",
@@ -145,7 +145,7 @@ export const campusEvents: CampusEvent[] = [
     endTime: "3:45 PM",
     location: "Cooper Complex Auditorium",
     category: "Meeting",
-    locationId: "cooper_cc1",
+    locationId: "cooper_cc2",
     address: null,
   },
   {

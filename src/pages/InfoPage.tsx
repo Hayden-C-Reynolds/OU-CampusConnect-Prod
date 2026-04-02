@@ -38,7 +38,7 @@ const contributors = [
     note: "Researched and designed the information architecture.",
   },
   {
-    name: "Chris-Anna Jhonson",
+    name: "Chris-Anna Johnson",
     role: "Resource & UX Designer",
     emoji: "🎨",
     note: "Researched and designed the information architecture.",
