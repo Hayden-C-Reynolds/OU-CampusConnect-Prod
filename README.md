@@ -1,4 +1,4 @@
-````markdown
+
 # 🏫 Oakwood Campus Map App
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
@@ -194,7 +194,6 @@ MIT License – see [LICENSE](LICENSE)
 * [Tailwind CSS](https://tailwindcss.com/) – Utility-first styling
 * Inspiration from modern campus navigation apps
 
----
 
 ## 🔖 Badges & Highlights
 
@@ -203,7 +202,6 @@ MIT License – see [LICENSE](LICENSE)
 * 🟢 **Always-visible pulsing user marker**
 * 📱 **Mobile-first design**
 
-=======
 # OU-CampusConnect
 Campus Connect is an open-source navigation and event-discovery platform engineered specifically for the Oakwood University community. Developed as a flagship project for Computer Science for the People, this application moves beyond static GPS by blending high-fidelity visual storytelling (the "Movie App" interface) with precision spatial data.
->>>>>>> a8ad69a470341606b48ffda1ada17704685ccdde
+
