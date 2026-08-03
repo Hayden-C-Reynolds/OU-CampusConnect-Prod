@@ -520,4 +520,15 @@ export const campusLocations: CampusLocation[] = [
     extra: "The USM house is the heart of campus spirit—stop by to learn about upcoming social events or to voice your ideas to your student representatives.",
     acronyms: ["USM"]
   },
+  {
+  id: "ou_central_park",
+  name: "OU Central Park",
+  lat: 34.756232,
+  lng: -86.653423,
+  category: "Landmark",
+  description: "N/A",
+  hours: { open: "24/7", close: "—" },
+  extra: "N/A",
+  acronyms: ["CP"]
+},
 ];

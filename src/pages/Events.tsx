@@ -225,10 +225,10 @@ const EventsPage: React.FC = () => {
             <div className="fade-up mb-6 px-1">
               <IonText>
                 <h1 className="text-2xl font-black text-white tracking-tight">
-                  Alumni Weekend Events
+                  New Student Orientation Events
                 </h1>
               </IonText>
-              <p className="text-white/50 text-sm mt-1">April 1–5 · Oakwood University</p>
+              <p className="text-white/50 text-sm mt-1">August 2-9 · Oakwood University</p>
             </div>
 
             {/* Upcoming events */}
