@@ -154,11 +154,11 @@ export const departments: Department[] = [
     name: "Social Work",
     school: "education_social",
     chair: {
-      name: "TBD",
-      title: "Department Chair",
-      email: "",
+      name: "Dr. Shalunda Allen-Sherrod, DSW, LICSW-S, PIP",
+      title: "Department Chair, Interim Dean of Health Professions, Education and Social Services",
+      email: "ssherrod@oakwood.edu",
     },
-    locationId: "",
+    locationId: "green_hall",
   },
 
   // ── School of Nursing & Health Professions ──
