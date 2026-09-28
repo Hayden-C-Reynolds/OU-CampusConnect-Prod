@@ -15,6 +15,7 @@ import TabBar from "./components/navigation/TabBar";
 import Favorites from "./pages/Favorites";
 import InfoPage from "./pages/InfoPage";
 import EventsPage from "./pages/Events";
+import DepartmentsPage from "./pages/Departments";
 import Directions from "./pages/Directions";
 import Profile from "./pages/Profile";
 import { TermsPage, PrivacyPage } from "./pages/Legal";
@@ -91,6 +92,9 @@ const LoggedInApp: React.FC = () => {
         </Route>
         <Route exact path="/events">
           <EventsPage />
+        </Route>
+        <Route exact path="/departments">
+          <DepartmentsPage />
         </Route>
         <Route exact path="/directions">
           <Directions />

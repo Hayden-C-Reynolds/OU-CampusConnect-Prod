@@ -18,6 +18,7 @@ export const translations = {
     "tab.home": "Home",
     "tab.favorites": "Favorites",
     "tab.events": "Events",
+    "tab.departments": "Departments",
     "tab.profile": "Profile",
     "tab.info": "Info",
 
@@ -108,6 +109,16 @@ export const translations = {
     "favorites.backToMap": "Back to Map",
 
     // Events
+    // Departments
+    "departments.title": "Departments",
+    "departments.searchPlaceholder": "Search departments, chairs, buildings…",
+    "departments.chair": "Chair",
+    "departments.office": "Office",
+    "departments.viewOnMap": "View on Map",
+    "departments.directions": "Directions",
+    "departments.noResults": "No departments match your search.",
+    "departments.locationTBD": "Building TBD",
+
     "events.title": "Campus Events",
     "events.search": "Search events…",
     "events.all": "All",
@@ -242,6 +253,7 @@ export const translations = {
     "tab.home": "Inicio",
     "tab.favorites": "Favoritos",
     "tab.events": "Eventos",
+    "tab.departments": "Departamentos",
     "tab.profile": "Perfil",
     "tab.info": "Info",
 
@@ -332,6 +344,16 @@ export const translations = {
     "favorites.backToMap": "Volver al Mapa",
 
     // Events
+    // Departments
+    "departments.title": "Departamentos",
+    "departments.searchPlaceholder": "Buscar departamentos, directores, edificios…",
+    "departments.chair": "Director",
+    "departments.office": "Oficina",
+    "departments.viewOnMap": "Ver en el mapa",
+    "departments.directions": "Direcciones",
+    "departments.noResults": "Ningún departamento coincide con tu búsqueda.",
+    "departments.locationTBD": "Edificio por confirmar",
+
     "events.title": "Eventos del Campus",
     "events.search": "Buscar eventos…",
     "events.all": "Todos",
@@ -466,6 +488,7 @@ export const translations = {
     "tab.home": "Accueil",
     "tab.favorites": "Favoris",
     "tab.events": "Événements",
+    "tab.departments": "Départements",
     "tab.profile": "Profil",
     "tab.info": "Infos",
 
@@ -556,6 +579,16 @@ export const translations = {
     "favorites.backToMap": "Retour à la Carte",
 
     // Events
+    // Departments
+    "departments.title": "Départements",
+    "departments.searchPlaceholder": "Rechercher départements, directeurs, bâtiments…",
+    "departments.chair": "Directeur",
+    "departments.office": "Bureau",
+    "departments.viewOnMap": "Voir sur la carte",
+    "departments.directions": "Itinéraire",
+    "departments.noResults": "Aucun département ne correspond à votre recherche.",
+    "departments.locationTBD": "Bâtiment à confirmer",
+
     "events.title": "Événements du Campus",
     "events.search": "Rechercher des événements…",
     "events.all": "Tous",

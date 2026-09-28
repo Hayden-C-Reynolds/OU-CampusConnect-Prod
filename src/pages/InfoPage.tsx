@@ -124,7 +124,7 @@ const getFeatures = (t: (k: any) => string) => [
   { icon: "⭐", label: t("info.feature.favorites"),   desc: t("info.feature.favoritesDesc")  },
   { icon: "🕐", label: t("info.feature.hours"),       desc: t("info.feature.hoursDesc")      },
   { icon: "🧭", label: t("info.feature.directions"),  desc: t("info.feature.directionsDesc") },
-  { icon: "🎓", label: t("info.feature.departments"), desc: t("info.feature.departmentsDesc")},
+  { icon: "🎓", label: t("info.feature.departments"), desc: t("info.feature.departmentsDesc"), to: "/departments" },
 ];
 
 const InfoPage: React.FC = () => {
@@ -360,7 +360,8 @@ const InfoPage: React.FC = () => {
               {features.map((f) => (
                 <div
                   key={f.label}
-                  className="feature-card rounded-2xl p-4 border border-white/10"
+                  onClick={f.to ? () => router.push(f.to, "forward") : undefined}
+                  className={`feature-card rounded-2xl p-4 border border-white/10 ${f.to ? "cursor-pointer" : ""}`}
                   style={{
                     background: "linear-gradient(135deg, var(--cc-surface-2), var(--cc-surface))",
                   }}
