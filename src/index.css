@@ -1,0 +1,9 @@
+html, body, ion-app, ion-content, ion-page, ion-router-outlet {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Override Ionic’s default background variable */
+ion-content {
+  --background: #000 !important;
+}

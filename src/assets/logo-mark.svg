@@ -1,0 +1,32 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#151b32"/>
+      <stop offset="100%" stop-color="#0a0e1a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0c669"/>
+      <stop offset="100%" stop-color="#c9922b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Badge background -->
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="8" y="8" width="496" height="496" rx="106" fill="none" stroke="#e8b341" stroke-opacity="0.25" stroke-width="4"/>
+
+  <!-- Outer compass ring -->
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#e8b341" stroke-opacity="0.35" stroke-width="6"/>
+
+  <!-- Compass needle (N gold, S blue) -->
+  <path d="M256 116 L296 256 L256 396 L216 256 Z" fill="url(#gold)"/>
+  <path d="M256 396 L296 256 L256 246 L216 256 Z" fill="#4c7ef3"/>
+
+  <!-- Center hub -->
+  <circle cx="256" cy="256" r="22" fill="#0a0e1a" stroke="#f0c669" stroke-width="6"/>
+
+  <!-- Cardinal ticks -->
+  <circle cx="256" cy="96" r="7" fill="#e8b341"/>
+  <circle cx="256" cy="416" r="7" fill="#4c7ef3"/>
+  <circle cx="96" cy="256" r="5" fill="#e8b341" fill-opacity="0.6"/>
+  <circle cx="416" cy="256" r="5" fill="#e8b341" fill-opacity="0.6"/>
+</svg>
