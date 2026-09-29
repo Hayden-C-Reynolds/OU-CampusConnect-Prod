@@ -72,9 +72,9 @@ export const departments: Department[] = [
     name: "English & Foreign Languages",
     school: "arts_sciences",
     chair: {
-      name: "TBD",
+      name: "Dr. Benson Prigg",
       title: "Department Chair",
-      email: "",
+      email: "bprigg@oakwood.edu",
     },
     locationId: "moran_hall",
   },
@@ -131,12 +131,12 @@ export const departments: Department[] = [
     id: "education",
     name: "Education",
     school: "education_social",
-    chair: {
-      name: "TBD",
-      title: "Department Chair",
-      email: "",
+    chair: { 
+      name: "Dr. Courtney Golden, Ed.D",
+      title: "Department Chair, Assistant Professor of Education and Social Sciences",
+      email: "cgolden@oakwood.edu",
     },
-    locationId: "",
+    locationId: "ford_hall",
   },
   {
     id: "history_political_science",
