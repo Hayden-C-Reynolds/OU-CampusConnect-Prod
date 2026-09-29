@@ -178,9 +178,9 @@ export const departments: Department[] = [
     name: "Nursing",
     school: "nursing_health",
     chair: {
-      name: "TBD",
-      title: "Department Chair",
-      email: "",
+      name: "Karen Anderson",
+      title: "Interim Department Chair",
+      email: "kanderson@oakwood.edu",
     },
     locationId: "cooper_cc1",
   },
@@ -189,11 +189,11 @@ export const departments: Department[] = [
     name: "Nutrition & Dietetics",
     school: "nursing_health",
     chair: {
-      name: "TBD",
+      name: "LaTonya Dixon, MSc; PhD",
       title: "Department Chair",
-      email: "",
+      email: "ldixon@oakwood.edu",
     },
-    locationId: "",
+    locationId: "cooper_cc1",
   },
 
   // ── School of Theology ──
