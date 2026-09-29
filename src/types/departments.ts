@@ -199,13 +199,13 @@ export const departments: Department[] = [
   // ── School of Theology ──
   {
     id: "religion",
-    name: "Religion",
+    name: "Religion & Theology",
     school: "theology",
     chair: {
-      name: "TBD",
-      title: "Department Chair",
-      email: "",
+      name: "Gilbert Okuro Ojwang, Ph.D.",
+      title: "Department Chair, Associate Professor",
+      email: "gojwang@oakwood.edu",
     },
-    locationId: "",
+    locationId: "bradford_cleveland",
   },
 ];
