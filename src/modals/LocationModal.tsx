@@ -1,10 +1,10 @@
 // MapView/components/LocationModal.tsx
 import React, { useMemo, useState } from "react";
-import { IonModal, IonContent, IonIcon, useIonRouter } from "@ionic/react";
+import { IonModal, IonContent, IonIcon } from "@ionic/react";
 import {
   lockClosedOutline,
   mapOutline,
-  navigateOutline,
+  // navigateOutline,
   starOutline,
   star,
   flagOutline,
@@ -156,7 +156,7 @@ const LocationModal: React.FC<Props> = ({
   isGuest,
   showSaveTooltip,
 }) => {
-  const router = useIonRouter();
+  // const router = useIonRouter();
   const { t, language } = useLanguage();
   const { handleOnCreateNewEntry } = React.useContext(IonStorageContext);
   const [activeTab, setActiveTab] = useState<Tab>("info");
@@ -184,10 +184,10 @@ const LocationModal: React.FC<Props> = ({
     await handleOnCreateNewEntry("user", null);
   };
 
-  const handleNavigateInApp = () => {
-    onClose();
-    router.push(`/directions?dest=${location.lat},${location.lng}`, "forward");
-  };
+  // const handleNavigateInApp = () => {
+  //   onClose();
+  //   router.push(`/directions?dest=${location.lat},${location.lng}`, "forward");
+  // };
 
   return (
     <IonModal isOpen={isOpen} onDidDismiss={onClose}>
@@ -292,7 +292,7 @@ const LocationModal: React.FC<Props> = ({
               {/* Quick actions */}
               <div className="flex w-full max-w-[280px] mt-1">
                 <IconAction icon={mapOutline} label={t("location.actionDirections")} onClick={() => openDirections(location.lat, location.lng)} />
-                <IconAction icon={navigateOutline} label={t("location.actionNavigate")} onClick={handleNavigateInApp} />
+                {/* <IconAction icon={navigateOutline} label={t("location.actionNavigate")} onClick={handleNavigateInApp} /> */}
                 {isGuest ? (
                   <IconAction icon={lockClosedOutline} label={t("location.actionSave")} onClick={handleLoginPrompt} />
                 ) : (
