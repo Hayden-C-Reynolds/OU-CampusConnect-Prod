@@ -167,9 +167,9 @@ export const departments: Department[] = [
     name: "Health & Human Services",
     school: "nursing_health",
     chair: {
-      name: "TBD",
+      name: "Dr. Earl S. Henry",
       title: "Department Chair",
-      email: "",
+      email: "ehenry@oakwood.edu",
     },
     locationId: "natatorium",
   },
