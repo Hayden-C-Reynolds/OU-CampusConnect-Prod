@@ -441,8 +441,8 @@ export const campusLocations: CampusLocation[] = [
   {
     id: "unity_pond",
     name: "Unity Pond",
-    lat: 34.753727,
-    lng: -86.649640,
+    lat: 34.756538,
+    lng: -86.648074,
     category: "Landmark",
     description: "A small campus pond and green space, popular for a quiet walk or a study break between classes.",
     hours: { open: "24/7", close: "—" },
@@ -552,5 +552,16 @@ export const campusLocations: CampusLocation[] = [
   hours: { open: "24/7", close: "—" },
   extra: "A popular spot for pickup games, club tabling, and outdoor events throughout the year.",
   acronyms: ["CP"]
+},
+{
+  id: "chac",
+  name: "Community Health Action Center (CHAC)",
+  lat: 34.754083,
+  lng: -86.643472,
+  category: "Facility",
+  description: "Huntsville Hospital Physician Care at Oakwood — Family practice physician.",
+  hours: { open: "8:00 AM", close: "5:00 PM" },
+  extra: "Closed Saturday and Sunday. Lunch break 12:00 PM - 1:00 PM daily.",
+  acronyms: ["CHAC"],
 },
 ];
