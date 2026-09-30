@@ -36,7 +36,7 @@ export const departments: Department[] = [
   // ── School of Arts & Sciences ──
   {
     id: "biology",
-    name: "Biology",
+    name: "Biological Science",
     school: "arts_sciences",
     chair: {
       name: "Elaine Vanterpool, Ph.D.",
@@ -119,9 +119,9 @@ export const departments: Department[] = [
     note: "Includes Accounting, Finance, Management, and Marketing",
     school: "business",
     chair: {
-      name: "TBD",
-      title: "Department Chair",
-      email: "",
+      name: "Theodore Brown, Ph.D",
+      title: "Dean of the School of Business, Department Chair",
+      email: "tbrown@oakwood.edu",
     },
     locationId: "mckee_bt",
   },
