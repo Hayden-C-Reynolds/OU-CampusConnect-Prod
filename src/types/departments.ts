@@ -105,11 +105,11 @@ export const departments: Department[] = [
     name: "Psychological Sciences",
     school: "arts_sciences",
     chair: {
-      name: "TBD",
+      name: "Carmen Bucknor, PHD",
       title: "Department Chair",
-      email: "",
+      email: "cbucknor@oakwood.edu",
     },
-    locationId: "",
+    locationId: "green_hall",
   },
 
   // ── School of Business ──
@@ -143,9 +143,9 @@ export const departments: Department[] = [
     name: "History & Political Science",
     school: "education_social",
     chair: {
-      name: "TBD",
+      name: "Samuel London Ph.D. M.A",
       title: "Department Chair",
-      email: "",
+      email: "ehenry@oakwood.edu",
     },
     locationId: "moran_hall",
   },
