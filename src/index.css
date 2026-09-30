@@ -1,9 +1,363 @@
-html, body, ion-app, ion-content, ion-page, ion-router-outlet {
+
+@import "tailwindcss";
+/* html, body, ion-app, ion-content, ion-page, ion-router-outlet {
   background-color: #000;
   color: #fff;
 }
 
-/* Override Ionic’s default background variable */
-ion-content {
-  --background: #000 !important;
+/* ============================================================
+   Theme: dark (default) / light
+   ------------------------------------------------------------
+   Semantic tokens that both Tailwind's color tokens (below) and
+   Ionic's component variables (below that) are routed through,
+   so switching the `cc-light` class on <html> re-themes the
+   whole app shell, cards, buttons, and Ionic overlays from one
+   place. Components using literal inline colors for text are
+   converted to reference these same variables directly.
+   ============================================================ */
+:root {
+  --cc-bg: #0a0e1a;
+  --cc-surface: #10152a;
+  --cc-surface-2: #1b2138;
+  --cc-surface-3: #262d4a;
+  --cc-surface-soft: rgba(255, 255, 255, 0.04);
+  --cc-border: rgba(255, 255, 255, 0.08);
+  --cc-border-strong: rgba(255, 255, 255, 0.14);
+  --cc-text: #ffffff;
+  --cc-text-secondary: rgba(255, 255, 255, 0.6);
+  --cc-text-tertiary: rgba(255, 255, 255, 0.4);
+  --cc-input-bg: rgba(17, 24, 39, 0.97);
+}
+
+html.cc-light {
+  --cc-bg: #f4f5f7;
+  --cc-surface: #ffffff;
+  --cc-surface-2: #eef0f3;
+  --cc-surface-3: #e1e4e9;
+  --cc-surface-soft: rgba(10, 14, 26, 0.04);
+  --cc-border: rgba(10, 14, 26, 0.1);
+  --cc-border-strong: rgba(10, 14, 26, 0.16);
+  --cc-text: #12151f;
+  --cc-text-secondary: rgba(18, 21, 31, 0.6);
+  --cc-text-tertiary: rgba(18, 21, 31, 0.45);
+  --cc-input-bg: #ffffff;
+}
+
+/* Belt-and-suspenders: force these on every Ionic component
+   directly, with !important. Some Ionic components ship internal
+   Shadow DOM defaults for --background that can win over a
+   per-page inline style lacking !important — a plain stylesheet
+   rule with !important reliably beats that regardless of which
+   page set (or forgot to set) its own inline style. */
+ion-content, ion-page, .ion-page {
+  --background: var(--cc-bg) !important;
+  --ion-background-color: var(--cc-bg) !important;
+}
+ion-toolbar {
+  --background: var(--cc-bg) !important;
+  --color: var(--cc-text) !important;
+}
+ion-content::part(background) {
+  background: var(--cc-bg) !important;
+}
+
+/* ============================================================
+   Ionic component theming
+   ------------------------------------------------------------
+   Without these, every Ionic overlay (IonAlert, IonToast,
+   IonLoading, IonActionSheet) renders in Ionic's stock LIGHT
+   theme — a bright white popup against our dark app — and every
+   IonButton color="primary/warning/etc" renders Ionic's default
+   blue/orange instead of our brand gold. These variables are
+   what Ionic's own components actually read, app-wide, from
+   one place.
+   ============================================================ */
+:root {
+  /* Brand gold as the primary + warning accent (buttons, segment
+     indicators, alert action buttons, spinners, etc.) */
+  --ion-color-primary: #e8b341;
+  --ion-color-primary-rgb: 232, 179, 65;
+  --ion-color-primary-contrast: #0a0e1a;
+  --ion-color-primary-contrast-rgb: 10, 14, 26;
+  --ion-color-primary-shade: #cc9e39;
+  --ion-color-primary-tint: #ebbc55;
+
+  --ion-color-warning: #e8b341;
+  --ion-color-warning-rgb: 232, 179, 65;
+  --ion-color-warning-contrast: #0a0e1a;
+  --ion-color-warning-contrast-rgb: 10, 14, 26;
+  --ion-color-warning-shade: #cc9e39;
+  --ion-color-warning-tint: #ebbc55;
+
+  --ion-color-secondary: #4c7ef3;
+  --ion-color-secondary-rgb: 76, 126, 243;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #4370d6;
+  --ion-color-secondary-tint: #5e8cf4;
+
+  --ion-color-danger: #ef4444;
+  --ion-color-danger-rgb: 239, 68, 68;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d23c3c;
+  --ion-color-danger-tint: #f15757;
+
+  --ion-color-medium: #8a8f98;
+  --ion-color-medium-rgb: 138, 143, 152;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #797e86;
+  --ion-color-medium-tint: #969ba3;
+
+  --ion-color-dark: #ffffff;
+  --ion-color-dark-rgb: 255, 255, 255;
+  --ion-color-dark-contrast: #0a0e1a;
+  --ion-color-dark-contrast-rgb: 10, 14, 26;
+  --ion-color-dark-shade: #e0e0e0;
+  --ion-color-dark-tint: #ffffff;
+
+  /* App-wide background, used by every IonPage/IonContent
+     that doesn't set its own --background */
+  --ion-background-color: var(--cc-bg);
+  --ion-background-color-rgb: 10, 14, 26;
+  --ion-text-color: var(--cc-text);
+  --ion-text-color-rgb: 255, 255, 255;
+
+  --ion-toolbar-background: var(--cc-bg);
+  --ion-toolbar-color: var(--cc-text);
+  --ion-item-background: var(--cc-surface);
+  --ion-card-background: var(--cc-surface);
+  --ion-border-color: var(--cc-border);
+
+  --ion-color-step-50: #14192b;
+  --ion-color-step-100: #1b2138;
+  --ion-color-step-150: #212840;
+  --ion-color-step-200: #272f48;
+  --ion-color-step-250: #2d3650;
+  --ion-color-step-300: #333d58;
+  --ion-color-step-350: #3a4460;
+  --ion-color-step-400: #404b68;
+  --ion-color-step-450: #465270;
+  --ion-color-step-500: #4c5978;
+  --ion-color-step-550: #656a85;
+  --ion-color-step-600: #7e7c92;
+  --ion-color-step-650: #978d9f;
+  --ion-color-step-700: #b0a0ac;
+  --ion-color-step-750: #c9b3b9;
+  --ion-color-step-800: #e2c6c6;
+  --ion-color-step-850: #ebd6d6;
+  --ion-color-step-900: #f0e5e5;
+  --ion-color-step-950: #f8f2f2;
+}
+
+/* IonAlert / IonActionSheet surface — force the dark card look
+   regardless of platform mode (ios/md), since these render in a
+   shadow root that some of the variables above don't reach. */
+.alert-wrapper, .action-sheet-container {
+  --background: var(--cc-surface);
+  --ion-background-color: var(--cc-surface);
+}
+.alert-wrapper .alert-title, .alert-wrapper .alert-message {
+  color: var(--cc-text);
+}
+.alert-wrapper .alert-message {
+  color: var(--cc-text-secondary);
+}
+
+/* IonToast — same reasoning as the alert override above. */
+.toast-wrapper {
+  --background: var(--cc-surface);
+  --color: var(--cc-text);
+  --button-color: #e8b341;
+  font-weight: 500;
+}
+
+/* ============================================================
+   Light-mode retheming for common Tailwind utility patterns
+   ------------------------------------------------------------
+   Most components were written with literal dark-mode Tailwind
+   classes (text-white, text-gray-400, border-white/10, bg-white/5,
+   bg-black/40, etc.) rather than theme-aware tokens, since they
+   predate the light/dark toggle. Rather than hand-editing every
+   occurrence across every file, these overrides retarget the
+   exact same classes when `.cc-light` is active on <html> — one
+   central place that reaches every screen and modal at once.
+   `!important` is required here because these are overriding
+   other utility-class rules of otherwise-equal specificity.
+   ============================================================ */
+html.cc-light {
+  /* Primary text */
+  .text-white { color: var(--cc-text) !important; }
+
+  /* Page-level bg-black classes (Home, Events, Favorites use this
+     directly as their IonContent background before the global
+     ion-content !important rule was added — kept here too for
+     belt-and-suspenders coverage on the className itself). */
+  .bg-black { background-color: var(--cc-bg) !important; }
+
+  /* text-white/N opacity-modifier variants — very heavily used
+     across Events, Home, Info, SearchBar, etc for secondary/muted
+     text. Map high opacity -> primary text, mid -> secondary,
+     low -> tertiary, matching how they read against dark. */
+  .text-white\/70, .text-white\/80, .text-white\/90 { color: var(--cc-text) !important; }
+  .text-white\/50, .text-white\/60 { color: var(--cc-text-secondary) !important; }
+  .text-white\/20, .text-white\/30, .text-white\/40 { color: var(--cc-text-tertiary) !important; }
+  .hover\:text-white\/70:hover, .hover\:text-white\/80:hover { color: var(--cc-text) !important; }
+  .placeholder-white::placeholder,
+  .placeholder-white\/30::placeholder { color: var(--cc-text-tertiary) !important; opacity: 1; }
+
+  /* Secondary / muted text — light-to-dark across the gray scale */
+  .text-gray-100, .text-gray-200, .text-gray-300 { color: var(--cc-text-secondary) !important; }
+  .text-gray-400, .text-gray-500, .text-gray-600 { color: var(--cc-text-tertiary) !important; }
+  .text-gray-700, .text-gray-800 { color: var(--cc-text) !important; }
+  .hover\:text-white:hover,
+  .hover\:text-gray-300:hover,
+  .hover\:text-gray-200:hover { color: var(--cc-text) !important; }
+
+  /* Borders */
+  .border-white\/5, .border-white\/8, .border-white\/10,
+  .border-white\/15, .border-white\/20 { border-color: var(--cc-border) !important; }
+
+  /* Soft fill surfaces (cards, chips, input backgrounds) */
+  .bg-white\/3, .bg-white\/4, .bg-white\/5 { background-color: var(--cc-surface-soft) !important; }
+  .bg-white\/8, .bg-white\/10 { background-color: var(--cc-border-strong) !important; }
+  .hover\:bg-white\/5:hover, .hover\:bg-white\/10:hover { background-color: var(--cc-surface-soft) !important; }
+
+  /* Dark scrims (close buttons, overlays on photos) stay dark —
+     these sit on top of images/gradients, not the page background,
+     so they should NOT flip to light. Left untouched intentionally. */
+
+  /* Placeholder text */
+  ::placeholder { color: var(--cc-text-tertiary) !important; opacity: 1; }
+}
+
+/* ============================================================
+   Buttons & interactions
+   ------------------------------------------------------------
+   A calmer, more consistent press/hover feel across every
+   button in the app — both IonButton and plain custom <button>
+   elements (TabBar, LanguageSwitcher, quick-action tiles, etc.)
+   which previously had no feedback state at all.
+   ============================================================ */
+ion-button {
+  --border-radius: 14px;
+  --box-shadow: none;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+ion-button.ion-activated {
+  transform: scale(0.97);
+}
+
+/* Solid-fill buttons (the default fill) are primary actions — give
+   them real weight: a soft gradient instead of flat color, plus a
+   matching glow shadow, so they read as "the thing to tap" instead
+   of just a rounded rectangle with text in it. Static gradients per
+   color (not color-mix()) — this app has repeatedly hit issues with
+   runtime CSS functions inside Ionic's Shadow DOM components. */
+ion-button:not([fill="outline"]):not([fill="clear"]) {
+  --box-shadow: 0 6px 20px rgba(232, 179, 65, 0.25);
+}
+ion-button[color="warning"]:not([fill="outline"]):not([fill="clear"]),
+ion-button:not([color]):not([fill="outline"]):not([fill="clear"]) {
+  --background: linear-gradient(135deg, #f0c669 0%, #c9922b 100%);
+  --box-shadow: 0 6px 20px rgba(232, 179, 65, 0.25);
+}
+ion-button[color="danger"]:not([fill="outline"]):not([fill="clear"]) {
+  --background: linear-gradient(135deg, #f15757 0%, #d23c3c 100%);
+  --box-shadow: 0 6px 20px rgba(239, 68, 68, 0.25);
+}
+ion-button[color="secondary"]:not([fill="outline"]):not([fill="clear"]) {
+  --background: linear-gradient(135deg, #6f97f5 0%, #4370d6 100%);
+  --box-shadow: 0 6px 20px rgba(76, 126, 243, 0.25);
+}
+
+/* Outline buttons are secondary — keep them quiet: a clean border,
+   no shadow, subtle fill only on press. */
+ion-button[fill="outline"] {
+  --border-width: 1.5px;
+  --box-shadow: none;
+}
+
+/* Clear/text buttons are tertiary (Cancel, Close, links) — no
+   background at all, lowest visual weight, exactly as it should be. */
+ion-button[fill="clear"] {
+  font-weight: 500;
+  --box-shadow: none;
+}
+
+button {
+  transition: transform 0.12s ease, opacity 0.12s ease, background-color 0.15s ease;
+}
+button:active {
+  transform: scale(0.97);
+}
+
+/* Respect people who've asked their OS to reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  ion-button, button {
+    transition: none !important;
+  }
+  ion-button.ion-activated, button:active {
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   Brand: "Oakwood Compass"
+   ------------------------------------------------------------
+   Overriding Tailwind's own color tokens means every existing
+   utility class (bg-gray-950, text-amber-400, border-amber-300,
+   etc.) picks up the new palette automatically, everywhere in
+   the app, from this one place.
+   ============================================================ */
+@theme {
+  /* Deep navy background instead of flat black */
+  --color-gray-950: var(--cc-bg);
+  --color-gray-900: var(--cc-surface);
+  --color-gray-800: var(--cc-surface-2);
+  --color-gray-700: var(--cc-surface-3);
+
+  /* Refined gold accent instead of generic amber */
+  --color-amber-300: #f0c669;
+  --color-amber-400: #e8b341;
+  --color-amber-500: #c9922b;
+  --color-amber-600: #a8761f;
+
+  /* Oakwood blue, used as a secondary accent */
+  --color-blue-400: #6f97f5;
+  --color-blue-500: #4c7ef3;
+  --color-blue-600: #3560d1;
+}
+
+
+/* ============================================================
+   Responsive app shell
+   ------------------------------------------------------------
+   Mobile / small tablet (<1024px): unchanged single-column app,
+   bottom tab bar for navigation — this is the primary experience
+   most students will use day to day.
+
+   Desktop / large tablet (>=1024px): a persistent left sidebar
+   (see SideNav.tsx) replaces the bottom tab bar, and page content
+   gets real breathing room instead of being squeezed into a fake
+   phone-shaped column. A persistent bottom tab bar is used at
+   every screen size — no sidebar, no top nav.
+   ============================================================ */
+
+html,
+body {
+  background: var(--cc-bg);
+}
+
+/* Give content pages a comfortable max-width on large screens
+   instead of stretching every card/button edge-to-edge. Pages opt
+   in via the .cc-page-shell class on their scrollable container. */
+.cc-page-shell {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
 }

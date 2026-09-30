@@ -131,13 +131,6 @@ const Home: React.FC = () => {
           }
         `}</style>
 
-        <div id="cc-tour-search">
-          <SearchBar
-            allLocations={locations}
-            onSelect={(loc) => mapRef.current?.openLocation(loc)}
-          />
-        </div>
-
         <div id="cc-tour-map" className="mx-auto relative">
           <MapView
             ref={mapRef}
@@ -236,6 +229,23 @@ const Home: React.FC = () => {
         </div>
 
       </IonContent>
+
+      {/* Rendered as a real DOM sibling of IonContent (not slotted inside
+          it) so it's a true viewport-relative fixed element — not nested
+          inside IonContent's touch-scroll shadow DOM (which clips
+          position:fixed descendants on real mobile browsers), and not
+          subject to Ionic's own slot="fixed" positioning/sizing behavior
+          either (that was tried and made it worse — the slot wrapper
+          collapsed the bar down to a sliver instead of just showing the
+          input). SearchBar already positions itself with its own
+          position:fixed + safe-area insets, so it doesn't need to be
+          inside IonContent for that to work. */}
+      <div id="cc-tour-search">
+        <SearchBar
+          allLocations={locations}
+          onSelect={(loc) => mapRef.current?.openLocation(loc)}
+        />
+      </div>
 
       <InstallAppModal isOpen={showInstallModal} onClose={() => setShowInstallModal(false)} />
     </IonPage>
